@@ -140,15 +140,15 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         )}
 
         {/* CTA Banner */}
-        <div className="bg-forest-900 rounded-3xl p-8 text-white text-center space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-serif font-medium">
+        <div className="bg-[#F1F6F3] border border-[#DEE7E1] rounded-3xl p-8 text-forest-950 text-center space-y-4 shadow-soft-sm">
+          <h2 className="text-2xl sm:text-3xl font-serif font-medium text-forest-950">
             Begin Your Consultation Process
           </h2>
-          <p className="text-sand-300 text-sm max-w-lg mx-auto">
+          <p className="text-slate-600 text-sm max-w-lg mx-auto">
             Submit an online intake application to reserve your confidential introductory video session.
           </p>
           <Link href={`/book-appointment?service=${service.id}`}>
-            <Button size="lg" className="bg-sand-100 text-forest-950 hover:bg-white">
+            <Button size="lg" className="bg-[#C47C56] hover:bg-[#B26A44] text-white border-[#B26A44]">
               <Calendar className="w-5 h-5 mr-2" />
               Book Appointment Now
             </Button>

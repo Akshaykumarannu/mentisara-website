@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Mentisara",
-  tagline: "Structured & Person-Centred Online Psychological Support",
+  tagline: "The Essence of the Mind",
   description: "Mentisara provides evidence-informed, person-centred online psychotherapy, cognitive behavioural therapy, and emotional resilience training tailored for individuals seeking confidential mental health support.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.mentisara.in",
   ogImage: "https://www.mentisara.in/images/og-mentisara.jpg",
@@ -27,7 +27,6 @@ export const siteConfig = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Workshops", href: "/workshops" },
     { label: "Resources", href: "/resources" },
     { label: "Contact", href: "/contact" },
   ],

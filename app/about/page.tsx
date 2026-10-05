@@ -36,7 +36,7 @@ export default function AboutPage() {
               The Mentisara Approach
             </h2>
             <p className="text-slate-700 leading-relaxed">
-              In a fast-paced world, emotional distress is often reduced to symptoms to be suppressed. At Mentisara, we take a different perspective. We understand that psychological challenges—whether anxiety, mood fluctuations, or relational stress—are meaningful signals of an individual&apos;s internal experience.
+              In a fast-paced world, emotional distress is often reduced to symptoms to be suppressed. At Mentisara, we take a different perspective. We understand that psychological challenges—whether anxiety, mood fluctuations, or adjustmental issues—are meaningful signals of an individual&apos;s internal experience.
             </p>
             <p className="text-slate-700 leading-relaxed">
               Our person-centred framework respects your autonomy and lived experience. We walk alongside you as collaborative partners, offering psychological insights, cognitive tools, and non-judgmental support so you can reclaim emotional balance.
@@ -141,15 +141,15 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div className="bg-[#050A06] border border-white/10 rounded-3xl p-8 sm:p-12 text-white text-center space-y-6 shadow-2xl">
-          <h2 className="text-3xl font-serif font-medium text-white">Begin Your Consultation Process</h2>
-          <p className="text-white/70 max-w-xl mx-auto text-sm sm:text-base font-light">
+        <div className="bg-[#F1F6F3] border border-[#DEE7E1] rounded-3xl p-8 sm:p-12 text-forest-950 text-center space-y-6 shadow-soft-sm">
+          <h2 className="text-3xl font-serif font-medium text-forest-950">Begin Your Consultation Process</h2>
+          <p className="text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
             Take a confident step toward emotional resilience with Mentisara&apos;s structured online sessions.
           </p>
           <Link href="/book-appointment" className="inline-block pt-2">
-            <button className="flex items-center justify-center gap-2.5 bg-[#FAF8F4] hover:bg-white text-[#0A0F0B] font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-300 hover:-translate-y-0.5 text-base border border-sand-200">
-              <Calendar className="w-5 h-5 text-[#D4956A]" />
-              <span className="text-[#0A0F0B] font-bold">Book an Appointment</span>
+            <button className="flex items-center justify-center gap-2.5 bg-[#C47C56] hover:bg-[#B26A44] text-white font-semibold px-8 py-3.5 rounded-full shadow-soft-md transition-all duration-300 hover:-translate-y-0.5 text-base">
+              <Calendar className="w-5 h-5" />
+              <span>Book an Appointment</span>
             </button>
           </Link>
         </div>

@@ -1,114 +1,90 @@
 import React from "react";
 import Link from "next/link";
-import { Calendar, MessageCircle, ShieldCheck, Clock, Heart, ArrowRight, Star } from "lucide-react";
+import { Calendar, MessageCircle, ShieldCheck, Clock, Heart, ArrowRight } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/utils";
 
 const trustFeatures = [
   {
-    icon: <ShieldCheck className="w-5 h-5" />,
+    icon: <ShieldCheck className="w-5 h-5 text-emerald-700" />,
     title: "100% Confidential",
-    desc: "Strict psychological code of ethics & privacy.",
-    color: "text-emerald-400",
-    bg: "bg-emerald-500/10 border-emerald-500/20",
+    desc: "Strict psychological code of ethics & data privacy.",
+    iconBg: "bg-[#D4E8DC]",
   },
   {
-    icon: <Clock className="w-5 h-5" />,
-    title: "24-Hour Response",
-    desc: "Prompt coordination via email or WhatsApp.",
-    color: "text-amber-400",
-    bg: "bg-amber-500/10 border-amber-500/20",
+    icon: <Clock className="w-5 h-5 text-[#B86237]" />,
+    title: "Prompt Coordination",
+    desc: "Prompt intake confirmation via email or WhatsApp.",
+    iconBg: "bg-[#F7E2D4]",
   },
   {
-    icon: <Heart className="w-5 h-5" />,
+    icon: <Heart className="w-5 h-5 text-forest-800" />,
     title: "Person-Centred",
-    desc: "You set the pace. No rigid labels or pressure.",
-    color: "text-terracotta-400",
-    bg: "bg-terracotta-500/10 border-terracotta-500/20",
+    desc: "You set the pace. Individualized care without pressure.",
+    iconBg: "bg-[#D4E8DC]",
   },
 ];
 
-const ratingBadge = [1,2,3,4,5];
-
 export function AppointmentCTA() {
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden">
-      {/* Dark forest background */}
-      <div className="absolute inset-0 bg-mesh-dark" />
+    <section className="py-20 md:py-28 bg-mesh-dark relative overflow-hidden border-b border-[#BED7C6]">
+      {/* Ambient background glows */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#B2D8C0]/50 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[#F5D4BF]/40 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Animated ambient glows */}
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-forest-600/25 rounded-full blur-[150px] pointer-events-none animate-breathe" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-terracotta-700/20 rounded-full blur-[130px] pointer-events-none animate-breathe delay-700" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-forest-500/10 rounded-full blur-[80px] pointer-events-none" />
-
-      {/* Decorative ring */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] border border-white/5 rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full pointer-events-none" />
-
-      {/* Noise texture */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E")`,
-          backgroundSize: '200px 200px',
-        }}
-      />
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-9 relative z-10">
 
         {/* Top badge */}
-        <div className="inline-flex items-center gap-2.5 bg-white/8 backdrop-blur-md px-5 py-2.5 rounded-full text-xs font-semibold text-sand-200 border border-white/12 shadow-soft-sm">
-          <span className="flex h-2.5 w-2.5 relative">
-            <span className="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-terracotta-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-terracotta-500" />
+        <div className="inline-flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full text-xs font-semibold text-forest-950 border border-[#BED7C6] shadow-soft-sm">
+          <span className="flex h-2 w-2 relative">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
           </span>
           Accepting New Clients · Online Sessions Available Now
         </div>
 
         {/* Heading */}
         <div className="space-y-4">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-medium tracking-tight text-white leading-[1.1]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium tracking-tight text-forest-950 leading-[1.15]">
             Ready to Take the First Step
             <br className="hidden sm:inline" />
-            <span className="italic font-normal text-sand-300">
+            <span className="italic font-normal text-[#C47C56]">
               {" "}Towards Emotional Clarity?
             </span>
           </h2>
-          <div className="flex items-center justify-center gap-3">
-            <div className="h-[2px] w-16 bg-gradient-to-r from-transparent to-terracotta-500" />
-            <div className="flex items-center gap-1">
-              {ratingBadge.map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-              ))}
-            </div>
-            <div className="h-[2px] w-16 bg-gradient-to-l from-transparent to-terracotta-500" />
-          </div>
+          <div className="section-divider mt-2" />
         </div>
 
         {/* Subtitle */}
-        <p className="text-base sm:text-lg text-sand-300 max-w-2xl mx-auto leading-relaxed">
-          Submit an online intake application today. Our clinical coordinator will reach out promptly
+        <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed">
+          Submit an online intake application today. Our clinical intake coordinator will reach out promptly
           to confirm session times and provide confidential connection details.
         </p>
 
         {/* Trust Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
           {trustFeatures.map((feat, i) => (
-            <div key={i} className={`${feat.bg} border backdrop-blur-sm p-5 rounded-2xl space-y-2 hover:-translate-y-1 transition-transform duration-300`}>
-              <div className={`flex items-center gap-2 ${feat.color} text-xs font-bold uppercase tracking-wider`}>
-                {feat.icon}
-                <span>{feat.title}</span>
+            <div
+              key={i}
+              className="bg-white border border-[#CADBD0] p-5 rounded-2xl space-y-2.5 shadow-soft-sm hover:-translate-y-0.5 transition-transform duration-200"
+            >
+              <div className="flex items-center gap-2.5">
+                <div className={`p-1.5 rounded-lg ${feat.iconBg}`}>
+                  {feat.icon}
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-forest-950">{feat.title}</span>
               </div>
-              <p className="text-xs text-sand-400 leading-relaxed">{feat.desc}</p>
+              <p className="text-xs text-slate-600 leading-relaxed pl-0.5">{feat.desc}</p>
             </div>
           ))}
         </div>
 
-        {/* CTA Buttons */}
+        {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
           <Link href="/book-appointment" className="w-full sm:w-auto">
-            <button className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-white hover:bg-[#F8F5EE] text-[#0A0F0B] font-bold px-9 py-4 rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-1 group text-base">
-              <Calendar className="w-5 h-5 text-[#D4956A] group-hover:rotate-6 transition-transform" />
-              <span className="text-[#0A0F0B] font-bold">Book an Appointment</span>
-              <ArrowRight className="w-4 h-4 text-[#0A0F0B] opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+            <button className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-[#C47C56] hover:bg-[#B26A44] text-white font-semibold px-8 py-3.5 rounded-2xl shadow-soft-md transition-all duration-200 hover:-translate-y-0.5 text-base">
+              <Calendar className="w-5 h-5" />
+              <span>Book an Appointment</span>
+              <ArrowRight className="w-4 h-4 ml-1" />
             </button>
           </Link>
 
@@ -118,7 +94,7 @@ export function AppointmentCTA() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto"
           >
-            <button className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-transparent hover:bg-white/8 text-white font-semibold px-9 py-4 rounded-2xl border border-white/25 hover:border-white/40 transition-all duration-300 hover:-translate-y-1 text-base">
+            <button className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-white hover:bg-sand-50 text-forest-950 font-medium px-8 py-3.5 rounded-2xl border border-[#BED7C6] hover:border-forest-300 transition-all duration-200 hover:-translate-y-0.5 text-base shadow-soft-sm">
               <MessageCircle className="w-5 h-5 text-[#25D366]" />
               Talk via WhatsApp
             </button>
@@ -126,8 +102,8 @@ export function AppointmentCTA() {
         </div>
 
         {/* Bottom reassurance */}
-        <p className="text-xs text-sand-500 max-w-md mx-auto leading-relaxed">
-          No commitment required. Confidential intake process. All data is handled under strict psychological privacy standards.
+        <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed font-medium">
+          Confidential intake process. All personal details are protected under professional psychological ethics.
         </p>
 
       </div>

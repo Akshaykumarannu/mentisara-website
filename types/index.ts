@@ -70,7 +70,11 @@ export interface AppointmentFormData {
   lastName: string;
   email: string;
   phone: string;
-  age: string;
+  age: string; // Mandatory
+  preferredLanguage: string;
+  preferredLanguageOther?: string;
+  idProofFileName?: string;
+  idProofBase64?: string;
   preferredService: string;
   preferredDate: string;
   preferredTimeSlot: string;

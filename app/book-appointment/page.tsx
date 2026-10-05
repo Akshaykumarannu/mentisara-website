@@ -8,7 +8,7 @@ import { buildWhatsAppUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Book an Appointment | Online Psychological Intake Application",
-  description: "Register for an online therapy consultation or workshop at Mentisara. Confidential, person-centred psychological support.",
+  description: "Register for an online therapy consultation at Mentisara. Confidential, person-centred psychological support.",
 };
 
 export default function BookAppointmentPage({
@@ -17,7 +17,7 @@ export default function BookAppointmentPage({
   searchParams: { service?: string };
 }) {
   return (
-    <div className="pt-28 pb-20 bg-ivory">
+    <div className="pt-28 pb-20 bg-[#EAF2EC]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <Breadcrumbs items={[{ label: "Book Appointment" }]} />

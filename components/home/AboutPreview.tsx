@@ -1,92 +1,80 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles, Brain, Heart, Shield } from "lucide-react";
+import { ArrowRight, BookOpen, Stethoscope, HeartHandshake, Award } from "lucide-react";
 
-const highlights = [
-  { icon: <Brain className="w-5 h-5" />, text: "Empathetic listening that respects your lived reality" },
-  { icon: <Shield className="w-5 h-5" />, text: "Confidential, ethics-guided digital therapy environment" },
-  { icon: <CheckCircle2 className="w-5 h-5" />, text: "Structured care models grounded in clinical evidence" },
-  { icon: <Heart className="w-5 h-5" />, text: "Individualized support designed for long-term growth" },
-];
-
-const credentials = [
-  { label: "Psychology Graduate", sub: "Clinical Specialization" },
-  { label: "CBT Certified", sub: "Cognitive Behavioural Therapy" },
-  { label: "Person-Centred", sub: "Humanistic Approach" },
+const credentialsAndApproach = [
+  {
+    icon: <BookOpen className="w-5 h-5 text-forest-700" />,
+    title: "Evidence-Based Approach",
+    desc: "Grounded in scientifically validated psychological frameworks and therapeutic modalities.",
+  },
+  {
+    icon: <Award className="w-5 h-5 text-[#C47C56]" />,
+    title: "Clinical Experience",
+    desc: "Guided by dedicated clinical training, professional ethics, and thoughtful practice.",
+  },
+  {
+    icon: <Stethoscope className="w-5 h-5 text-forest-700" />,
+    title: "Psychiatric Care Coordination",
+    desc: "Seamless collaborative consultation and doctor coordination whenever medication or medical input is indicated.",
+  },
+  {
+    icon: <HeartHandshake className="w-5 h-5 text-[#C47C56]" />,
+    title: "Person-Centred",
+    desc: "Honoring your autonomy, lived experience, and personal pace without rigid labels or pressure.",
+  },
 ];
 
 export function AboutPreview() {
   return (
-    <section className="py-24 md:py-32 bg-ivory relative overflow-hidden">
-      {/* Subtle background texture */}
-      <div className="absolute inset-0 bg-mesh-warm opacity-60 pointer-events-none" />
-
-      {/* Decorative arc */}
-      <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full border-2 border-sand-300/40 pointer-events-none" />
-      <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-sage-100/60 blur-3xl pointer-events-none" />
+    <section className="py-20 md:py-28 bg-[#FAF3EB] relative overflow-hidden border-b border-[#E8DBCF]">
+      {/* Decorative ambient elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#F2DAC6]/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C8E0D2]/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* ── LEFT: IMAGE STACK ──────────────────────────── */}
+          {/* ── LEFT: IMAGE & CREDENTIAL BADGE ── */}
           <div className="lg:col-span-5 relative order-2 lg:order-1">
-
-            {/* Background card (shadow) */}
-            <div className="absolute top-6 left-6 right-6 bottom-0 bg-forest-200/40 rounded-[2.5rem] rotate-2" />
-
-            {/* Main Image */}
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-elevated border-2 border-white z-10">
+            <div className="relative rounded-3xl overflow-hidden shadow-soft-md border-4 border-white bg-sand-200">
               <img
-                src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&q=80&w=1000"
-                alt="Empathetic consultation environment"
-                className="w-full h-[440px] object-cover"
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
+                alt="Professional, supportive online psychotherapy consultation"
+                className="w-full h-[460px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/40 via-transparent to-transparent" />
 
-              {/* Overlay label */}
-              <div className="absolute bottom-5 left-5 right-5 glass-card rounded-2xl p-4">
+              {/* Overlay Label */}
+              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-[#E8DBCF] shadow-soft-sm">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-forest-700 to-forest-900 text-white flex items-center justify-center font-serif font-bold text-lg">
+                  <div className="w-10 h-10 rounded-xl bg-forest-100 text-forest-900 border border-forest-200 flex items-center justify-center font-serif font-bold text-base">
                     M
                   </div>
                   <div>
                     <p className="text-sm font-serif font-semibold text-forest-950">Mentisara Practice</p>
-                    <p className="text-[11px] text-slate-500">Structured & Person-Centred Care</p>
+                    <p className="text-xs text-slate-500">Confidential & Person-Centred Care</p>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* Floating credential card */}
-            <div className="absolute -bottom-8 -right-4 sm:-right-8 bg-white rounded-[1.5rem] border border-sand-300 shadow-elevated p-5 z-20 max-w-[220px] animate-float-slow">
-              <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="w-4 h-4 text-terracotta-500" />
-                <p className="text-xs font-bold uppercase tracking-wider text-forest-900">Credentials</p>
-              </div>
-              {credentials.map((cred, i) => (
-                <div key={i} className={`${i > 0 ? 'border-t border-sand-200 mt-2 pt-2' : ''}`}>
-                  <p className="text-[11px] font-semibold text-forest-900">{cred.label}</p>
-                  <p className="text-[10px] text-slate-500">{cred.sub}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* ── RIGHT: COPY ──────────────────────────────────── */}
+          {/* ── RIGHT: COPY & 4 KEY CREDENTIALS ── */}
           <div className="lg:col-span-7 space-y-7 order-1 lg:order-2">
 
             <div>
-              <div className="inline-flex items-center gap-2 bg-forest-100 text-forest-800 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-forest-200 mb-4">
+              <div className="inline-flex items-center gap-2 bg-[#DDECE2] text-forest-900 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-[#BED6C5] mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-forest-600" />
                 About Mentisara
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-forest-950 font-medium tracking-tight leading-tight">
                 Understanding You{" "}
-                <span className="italic font-normal text-[#D4956A]">
+                <span className="italic font-normal text-[#C47C56]">
                   Beyond the Surface
                 </span>
               </h2>
-              <div className="h-[3px] w-12 rounded-full bg-gradient-to-r from-[#D4956A] to-[#E8B89A] mt-4" />
+              <div className="section-divider-left mt-4" />
             </div>
 
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
@@ -96,34 +84,49 @@ export function AboutPreview() {
               therapeutic approach.
             </p>
 
-            <p className="text-sm text-slate-600 leading-relaxed italic border-l-4 border-terracotta-400 pl-4">
-              "Every person's emotional experience is valid and unique. Our role is to walk alongside
-              you, not to lead you where we think you should go."
-            </p>
+            <blockquote className="text-sm text-slate-700 leading-relaxed italic border-l-4 border-[#C47C56] pl-4 bg-white/80 py-3 rounded-r-xl border border-l-0 border-[#E8DBCF] shadow-soft-sm">
+              &ldquo;Every person&apos;s emotional experience is valid and unique. Our role is to walk alongside
+              you as collaborative partners in your healing, self-discovery, and sustainable growth.&rdquo;
+            </blockquote>
 
-            {/* Highlights grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              {highlights.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3 bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-sand-200/80 hover:border-forest-300 hover:shadow-soft-sm transition-all group">
-                  <div className="w-9 h-9 rounded-xl bg-forest-100 text-forest-700 flex items-center justify-center shrink-0 group-hover:bg-forest-800 group-hover:text-white transition-colors">
-                    {item.icon}
+            {/* ── CREDENTIALS / OUR APPROACH (4 POINTS) ── */}
+            <div className="pt-2">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-forest-900 mb-4">
+                Our Approach & Credentials
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {credentialsAndApproach.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-2xl bg-white border border-[#E2D5C5] shadow-soft-sm hover:border-forest-300 transition-colors space-y-1.5"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-[#F5ECE1]">
+                        {item.icon}
+                      </div>
+                      <h4 className="text-sm font-semibold text-forest-950">{item.title}</h4>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed pl-1">
+                      {item.desc}
+                    </p>
                   </div>
-                  <span className="text-sm text-forest-900 font-medium leading-snug">{item.text}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
+            {/* Read more link */}
             <div className="pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2.5 bg-forest-800 hover:bg-forest-900 text-white font-semibold px-7 py-3.5 rounded-2xl shadow-soft-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-glow-forest group text-sm"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-forest-900 hover:text-[#C47C56] transition-colors group"
               >
-                Learn More About Mentisara
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span>Read more about our philosophy and practice</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
           </div>
+
         </div>
       </div>
     </section>

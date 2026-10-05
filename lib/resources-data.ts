@@ -79,8 +79,8 @@ export const resourcesData: ResourceArticle[] = [
     },
     publishedAt: "2026-08-20",
     readTime: "4 min read",
-    imageUrl: "https://images.unsplash.com/photo-1499209974431-9dac3ada00d7?auto=format&fit=crop&q=80&w=1000",
-    imageAlt: "Serene desk with notebook and warm morning cup",
+    imageUrl: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&q=80&w=1000",
+    imageAlt: "Calm sunrise over still water representing emotional resilience and renewal",
     tags: ["Burnout", "Resilience", "Workplace Mental Health", "Boundaries"],
     featured: false,
     contentHtml: `

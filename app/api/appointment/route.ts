@@ -3,29 +3,6 @@ import { AppointmentFormData, APIResponse } from "@/types";
 
 export const dynamic = "force-dynamic";
 
-// ─────────────────────────────────────────────────────────
-// MENTISARA — APPOINTMENT INTAKE API (Resend-powered)
-// 
-// EMAIL SETUP NOTES FOR PRODUCTION:
-//
-// Option A (Recommended — Free): Verify your domain in Resend dashboard
-//   1. Go to https://resend.com/domains
-//   2. Add domain: mentisara.in
-//   3. Add the DNS records Resend provides to your domain registrar
-//   4. Once verified, set EMAIL_FROM_ADDRESS=Mentisara <hello@mentisara.in>
-//
-// Option B (Quick start — no domain needed):
-//   - Resend's onboarding@resend.dev sender ONLY sends to the email
-//     address registered with your Resend account.
-//   - So CONTACT_EMAIL must equal your Resend account email.
-//   - This works for testing; for prod, verify your domain (Option A).
-//
-// Current .env.local config:
-//   EMAIL_SERVICE_API_KEY=re_...    → Your Resend API key
-//   CONTACT_EMAIL=akshay58930@gmail.com   → Must match Resend account email if using onboarding@resend.dev
-//   EMAIL_FROM_ADDRESS=Mentisara Intake <onboarding@resend.dev>
-// ─────────────────────────────────────────────────────────
-
 export async function POST(req: NextRequest) {
   try {
     const body: AppointmentFormData = await req.json();
@@ -51,6 +28,28 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Mandatory Age Validation (Requirement 18 & 21)
+    if (!age || isNaN(parseInt(age, 10)) || parseInt(age, 10) < 10 || parseInt(age, 10) > 120) {
+      return NextResponse.json<APIResponse>(
+        { success: false, message: "Please provide a valid age between 10 and 120." },
+        { status: 400 }
+      );
+    }
+
+    // Preferred Language Validation (Requirement 20 & 21)
+    if (!body.preferredLanguage) {
+      return NextResponse.json<APIResponse>(
+        { success: false, message: "Please select your preferred language." },
+        { status: 400 }
+      );
+    }
+    if (body.preferredLanguage === "Other" && !body.preferredLanguageOther?.trim()) {
+      return NextResponse.json<APIResponse>(
+        { success: false, message: "Please specify your preferred language." },
+        { status: 400 }
+      );
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json<APIResponse>(
@@ -67,7 +66,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 3. Build submission payload
+    const languageDisplay = body.preferredLanguage === "Other" && body.preferredLanguageOther
+      ? `Other (${body.preferredLanguageOther.trim()})`
+      : body.preferredLanguage || "English";
+
+    // 3. Build submission payload (Do not log raw base64 data to preserve privacy)
     const applicationId = `MTS-${Date.now().toString().slice(-6)}`;
     const submissionPayload = {
       applicationId,
@@ -75,7 +78,10 @@ export async function POST(req: NextRequest) {
       clientName: `${firstName.trim()} ${lastName.trim()}`,
       email: email.trim().toLowerCase(),
       phone: phoneClean,
-      age: age || "Not specified",
+      age: age.trim(),
+      preferredLanguage: languageDisplay,
+      idProofProvided: Boolean(body.idProofFileName),
+      idProofFileName: body.idProofFileName || "None provided",
       service: preferredService,
       preferredDate: preferredDate || "Flexible",
       preferredTimeSlot: body.preferredTimeSlot || "Flexible",
@@ -84,12 +90,32 @@ export async function POST(req: NextRequest) {
       additionalNotes: body.additionalNotes || "None",
     };
 
-    console.log("[Mentisara] New Appointment Application:", submissionPayload);
+    console.log("[Mentisara] New Appointment Application:", {
+      applicationId: submissionPayload.applicationId,
+      clientName: submissionPayload.clientName,
+      email: submissionPayload.email,
+      phone: submissionPayload.phone,
+      age: submissionPayload.age,
+      preferredLanguage: submissionPayload.preferredLanguage,
+      idProofProvided: submissionPayload.idProofProvided,
+      idProofFileName: submissionPayload.idProofFileName,
+      service: submissionPayload.service,
+    });
 
     // 4. Email dispatch via Resend
     const apiKey = process.env.EMAIL_SERVICE_API_KEY;
-    const recipientEmail = process.env.CONTACT_EMAIL || "contact@mentisara.in";
+    const recipientEmail = process.env.CONTACT_EMAIL || "mentisaramindtalks@gmail.com";
     const fromAddress = process.env.EMAIL_FROM_ADDRESS || "Mentisara Intake <onboarding@resend.dev>";
+
+    // Build attachments if user provided optional ID proof
+    const attachments: Array<{ filename: string; content: string }> = [];
+    if (body.idProofBase64 && body.idProofFileName) {
+      const cleanBase64 = body.idProofBase64.replace(/^data:[^;]+;base64,/, "");
+      attachments.push({
+        filename: body.idProofFileName,
+        content: cleanBase64,
+      });
+    }
 
     if (apiKey && apiKey !== "mock_dev_key") {
       // ── EMAIL 1: Notification to clinic (Mentisara team) ──
@@ -99,22 +125,18 @@ export async function POST(req: NextRequest) {
         to: [recipientEmail],
         subject: `🔔 New Therapy Application [${applicationId}] — ${submissionPayload.clientName} (${submissionPayload.service})`,
         html: clinicEmailHtml,
+        attachments: attachments.length > 0 ? attachments : undefined,
       });
 
       if (!clinicEmailRes.ok) {
         const errorBody = await clinicEmailRes.json();
         console.error("[Resend] Clinic email error:", errorBody);
-        // Log the error but don't fail the request — still return success
       } else {
         const clinicResult = await clinicEmailRes.json();
         console.log("[Resend] Clinic email sent:", clinicResult.id);
       }
 
       // ── EMAIL 2: Confirmation to client ──
-      // Note: This works when from domain is verified (mentisara.in).
-      // With onboarding@resend.dev, client email delivery is unreliable
-      // unless the client's email matches the Resend account email.
-      // Verify mentisara.in domain in Resend for reliable client emails.
       try {
         const clientEmailHtml = buildClientConfirmationHtml(submissionPayload);
         const clientEmailRes = await sendEmail(apiKey, {
@@ -130,13 +152,13 @@ export async function POST(req: NextRequest) {
           console.log("[Resend] Client confirmation email sent:", clientResult.id);
         } else {
           const clientError = await clientEmailRes.json();
-          console.warn("[Resend] Client email warning (may need domain verification):", clientError);
+          console.warn("[Resend] Client email warning:", clientError);
         }
       } catch (clientEmailErr) {
         console.warn("[Resend] Client confirmation email skipped:", clientEmailErr);
       }
     } else {
-      console.log("[Mentisara] Email service not configured. Payload logged above. Set EMAIL_SERVICE_API_KEY in .env.local");
+      console.log("[Mentisara] Email service not configured or in dev. Application saved successfully.");
     }
 
     return NextResponse.json<APIResponse>({
@@ -162,6 +184,7 @@ async function sendEmail(apiKey: string, payload: {
   replyTo?: string;
   subject: string;
   html: string;
+  attachments?: Array<{ filename: string; content: string }>;
 }) {
   return fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -182,6 +205,9 @@ function buildClinicEmailHtml(p: {
   email: string;
   phone: string;
   age: string;
+  preferredLanguage: string;
+  idProofProvided: boolean;
+  idProofFileName: string;
   service: string;
   preferredDate: string;
   preferredTimeSlot: string;
@@ -199,68 +225,126 @@ function buildClinicEmailHtml(p: {
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
         
         <!-- Header -->
-        <tr><td style="background:linear-gradient(135deg,#0F2619,#1A3F2A);padding:28px 32px;border-radius:16px 16px 0 0;">
+        <tr><td style="background:linear-gradient(135deg,#1A3F2A,#2D6643);padding:28px 32px;border-radius:16px 16px 0 0;">
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td>
-                <div style="width:42px;height:42px;background:rgba(255,255,255,0.12);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:22px;font-weight:bold;color:#F5EFEB;text-align:center;line-height:42px;">M</div>
-                <span style="font-family:Georgia,serif;font-size:20px;font-weight:bold;color:#ffffff;vertical-align:middle;margin-left:12px;">Mentisara</span>
+                <span style="font-family:Georgia,serif;font-size:22px;font-weight:bold;color:#ffffff;">Mentisara</span>
               </td>
               <td align="right">
-                <span style="font-size:11px;color:rgba(255,255,255,0.6);font-weight:600;">APPLICATION INTAKE</span>
+                <span style="font-size:11px;color:rgba(255,255,255,0.7);font-weight:600;">NEW APPLICATION INTAKE</span>
               </td>
             </tr>
           </table>
         </td></tr>
 
         <!-- Alert Banner -->
-        <tr><td style="background:#1E4D31;padding:14px 32px;border-bottom:1px solid rgba(255,255,255,0.08);">
-          <p style="margin:0;color:#A8D5B5;font-size:13px;font-weight:700;">
+        <tr><td style="background:#2D6643;padding:14px 32px;border-bottom:1px solid rgba(255,255,255,0.08);">
+          <p style="margin:0;color:#ffffff;font-size:13px;font-weight:700;">
             🔔 NEW THERAPY APPLICATION RECEIVED
-          </p>
-          <p style="margin:4px 0 0;color:rgba(168,213,181,0.7);font-size:11px;">
-            Application ID: <strong style="color:#A8D5B5;">${p.applicationId}</strong> &nbsp;|&nbsp; ${new Date(p.submittedAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit' })} IST
           </p>
         </td></tr>
 
         <!-- Body -->
-        <tr><td style="background:#ffffff;padding:28px 32px;">
-          
-          <h3 style="margin:0 0 20px;font-family:Georgia,serif;font-size:18px;color:#0F2619;">Client Details</h3>
-          
-          <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;font-size:14px;">
-            ${buildRow("Client Name", `<strong>${p.clientName}</strong>`)}
-            ${buildRow("Email", `<a href="mailto:${p.email}" style="color:#1E4D31;">${p.email}</a>`)}
-            ${buildRow("Phone / WhatsApp", `<a href="tel:${p.phone}" style="color:#1E4D31;">+${p.phone}</a>`)}
-            ${buildRow("Age", p.age)}
-            ${buildRow("Preferred Service", `<strong style="color:#1E4D31;">${p.service}</strong>`)}
-            ${buildRow("Session Mode", p.sessionMode)}
-            ${buildRow("Preferred Date", p.preferredDate)}
-            ${buildRow("Preferred Time Slot", p.preferredTimeSlot)}
+        <tr><td style="background:#ffffff;padding:32px;">
+
+          <!-- Client details -->
+          <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;border:1px solid #e0dcd5;border-radius:12px;overflow:hidden;">
+            <tr style="background:#faf7f2;">
+              <td colspan="2" style="padding:12px 18px;font-size:12px;font-weight:700;color:#1A3F2A;text-transform:uppercase;letter-spacing:0.08em;border-bottom:1px solid #e0dcd5;">
+                Client Information
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;width:140px;border-bottom:1px solid #f0ede8;">Full Name:</td>
+              <td style="padding:10px 18px;font-size:14px;color:#111;font-weight:700;border-bottom:1px solid #f0ede8;">${p.clientName}</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;border-bottom:1px solid #f0ede8;">Email:</td>
+              <td style="padding:10px 18px;font-size:13px;color:#111;border-bottom:1px solid #f0ede8;">
+                <a href="mailto:${p.email}" style="color:#1A3F2A;font-weight:600;">${p.email}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;border-bottom:1px solid #f0ede8;">Phone / WhatsApp:</td>
+              <td style="padding:10px 18px;font-size:13px;color:#111;border-bottom:1px solid #f0ede8;">
+                <a href="https://wa.me/${p.phone.replace(/[^0-9]/g, "")}" style="color:#25D366;font-weight:700;">${p.phone}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;border-bottom:1px solid #f0ede8;">Age:</td>
+              <td style="padding:10px 18px;font-size:13px;color:#111;font-weight:600;border-bottom:1px solid #f0ede8;">${p.age} years</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;border-bottom:1px solid #f0ede8;">Preferred Language:</td>
+              <td style="padding:10px 18px;font-size:13px;color:#111;font-weight:600;border-bottom:1px solid #f0ede8;">${p.preferredLanguage}</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;">ID Proof Status:</td>
+              <td style="padding:10px 18px;font-size:13px;color:#111;font-weight:600;">
+                ${p.idProofProvided ? `Attached (${p.idProofFileName})` : "Not provided (Optional)"}
+              </td>
+            </tr>
           </table>
 
-          <div style="margin:24px 0;background:#f8f5ee;border-left:4px solid #1E4D31;border-radius:0 8px 8px 0;padding:16px 20px;">
-            <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#1E4D31;text-transform:uppercase;letter-spacing:0.08em;">Primary Concern / Focus Area</p>
-            <p style="margin:0;font-size:14px;color:#2d3a30;line-height:1.7;">${p.primaryConcern}</p>
+          <!-- Session details -->
+          <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;border:1px solid #e0dcd5;border-radius:12px;overflow:hidden;">
+            <tr style="background:#faf7f2;">
+              <td colspan="2" style="padding:12px 18px;font-size:12px;font-weight:700;color:#1A3F2A;text-transform:uppercase;letter-spacing:0.08em;border-bottom:1px solid #e0dcd5;">
+                Requested Service & Timing
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;width:140px;border-bottom:1px solid #f0ede8;">Service:</td>
+              <td style="padding:10px 18px;font-size:14px;color:#1A3F2A;font-weight:700;border-bottom:1px solid #f0ede8;">${p.service}</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;border-bottom:1px solid #f0ede8;">Session Mode:</td>
+              <td style="padding:10px 18px;font-size:13px;color:#111;border-bottom:1px solid #f0ede8;">${p.sessionMode}</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;border-bottom:1px solid #f0ede8;">Preferred Date:</td>
+              <td style="padding:10px 18px;font-size:13px;color:#111;border-bottom:1px solid #f0ede8;">${p.preferredDate}</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 18px;font-size:13px;color:#666;">Preferred Slot:</td>
+              <td style="padding:10px 18px;font-size:13px;color:#111;">${p.preferredTimeSlot}</td>
+            </tr>
+          </table>
+
+          <!-- Clinical note -->
+          <div style="background:#faf7f2;border:1px solid #e0dcd5;border-radius:12px;padding:18px;margin-bottom:24px;">
+            <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#1A3F2A;text-transform:uppercase;letter-spacing:0.08em;">Primary Concern:</p>
+            <p style="margin:0;font-size:14px;color:#222;line-height:1.6;font-style:italic;">&ldquo;${p.primaryConcern}&rdquo;</p>
+            ${p.additionalNotes !== "None" ? `
+            <p style="margin:14px 0 6px;font-size:12px;font-weight:700;color:#1A3F2A;text-transform:uppercase;letter-spacing:0.08em;">Additional Notes:</p>
+            <p style="margin:0;font-size:13px;color:#444;line-height:1.5;">${p.additionalNotes}</p>
+            ` : ""}
           </div>
 
-          ${p.additionalNotes !== "None" ? `
-          <div style="margin:16px 0;background:#fff9f7;border:1px solid #ffe8de;border-radius:8px;padding:16px 20px;">
-            <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#9B4426;text-transform:uppercase;letter-spacing:0.08em;">Additional Notes</p>
-            <p style="margin:0;font-size:13px;color:#4a3a35;line-height:1.7;">${p.additionalNotes}</p>
-          </div>
-          ` : ''}
+          <!-- Action buttons -->
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="padding-right:8px;">
+                <a href="https://wa.me/${p.phone.replace(/[^0-9]/g, "")}?text=Hello%20${encodeURIComponent(p.clientName)}%2C%20thank%20you%20for%20reaching%20out%20to%20Mentisara.%20We%20received%20your%20application%20[${p.applicationId}]."
+                   style="display:block;background:#25D366;color:#ffffff;font-size:13px;font-weight:700;text-align:center;padding:12px 18px;border-radius:10px;text-decoration:none;">
+                  💬 Reply on WhatsApp
+                </a>
+              </td>
+              <td style="padding-left:8px;">
+                <a href="mailto:${p.email}?subject=Mentisara%20Intake%20Confirmation%20%5B${p.applicationId}%5D"
+                   style="display:block;background:#1A3F2A;color:#ffffff;font-size:13px;font-weight:700;text-align:center;padding:12px 18px;border-radius:10px;text-decoration:none;">
+                  ✉️ Reply via Email
+                </a>
+              </td>
+            </tr>
+          </table>
 
-          <div style="margin-top:24px;padding:16px 20px;background:#f0f6f2;border-radius:10px;text-align:center;">
-            <p style="margin:0;font-size:13px;color:#1E4D31;font-weight:600;">⚡ Please respond to this client within 24 hours via email or WhatsApp.</p>
-          </div>
         </td></tr>
 
         <!-- Footer -->
-        <tr><td style="background:#f4f2ee;padding:20px 32px;border-radius:0 0 16px 16px;border-top:1px solid #e0d8cf;">
-          <p style="margin:0;font-size:11px;color:#8a7e72;text-align:center;">
-            Submitted via <a href="https://www.mentisara.in" style="color:#1E4D31;text-decoration:none;">mentisara.in</a> online intake system &nbsp;·&nbsp; ${p.applicationId}
-          </p>
+        <tr><td style="background:#ede8e1;padding:16px 32px;border-radius:0 0 16px 16px;text-align:center;font-size:11px;color:#777;">
+          Mentisara Practice Intake Notification · Application ID: ${p.applicationId}
         </td></tr>
 
       </table>
@@ -270,15 +354,7 @@ function buildClinicEmailHtml(p: {
 </html>`;
 }
 
-function buildRow(label: string, value: string) {
-  return `
-  <tr>
-    <td style="padding:9px 0;border-bottom:1px solid #f0ebe4;color:#7a7065;width:160px;vertical-align:top;font-size:13px;">${label}:</td>
-    <td style="padding:9px 0 9px 12px;border-bottom:1px solid #f0ebe4;color:#1a1a1a;font-size:13px;">${value}</td>
-  </tr>`;
-}
-
-// ─── Email 2: Client confirmation ─────────────────────────
+// ─── Email 2: Client confirmation ────────────────────────
 
 function buildClientConfirmationHtml(p: {
   applicationId: string;
@@ -286,8 +362,8 @@ function buildClientConfirmationHtml(p: {
   service: string;
   preferredDate: string;
   preferredTimeSlot: string;
+  preferredLanguage: string;
 }) {
-  const firstName = p.clientName.split(" ")[0];
   return `
 <!DOCTYPE html>
 <html>
@@ -295,76 +371,66 @@ function buildClientConfirmationHtml(p: {
 <body style="margin:0;padding:0;background:#f4f2ee;font-family:Arial,Helvetica,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f2ee;padding:30px 0;">
     <tr><td align="center">
-      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
-
+      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e0dcd5;">
+        
         <!-- Header -->
-        <tr><td style="background:linear-gradient(135deg,#0F2619,#1A3F2A,#2D6643);padding:36px 32px;border-radius:16px 16px 0 0;text-align:center;">
-          <div style="width:52px;height:52px;background:rgba(255,255,255,0.12);border-radius:16px;display:inline-flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:26px;font-weight:bold;color:#F5EFEB;text-align:center;line-height:52px;margin-bottom:14px;">M</div>
-          <h1 style="margin:0;font-family:Georgia,serif;font-size:26px;font-weight:500;color:#ffffff;letter-spacing:-0.02em;">MENTISARA</h1>
-          <p style="margin:6px 0 0;font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.15em;text-transform:uppercase;font-weight:600;">Psychotherapy & Care</p>
+        <tr><td style="background:#1A3F2A;padding:28px 32px;text-align:center;">
+          <span style="font-family:Georgia,serif;font-size:24px;font-weight:bold;color:#ffffff;">Mentisara</span>
+          <p style="margin:4px 0 0;font-size:12px;color:rgba(255,255,255,0.7);letter-spacing:0.1em;text-transform:uppercase;">The Essence of the Mind</p>
         </td></tr>
 
-        <!-- Body -->
-        <tr><td style="background:#ffffff;padding:36px 32px;">
-          <h2 style="margin:0 0 6px;font-family:Georgia,serif;font-size:22px;color:#0F2619;font-weight:500;">
-            Application Received, ${firstName} 🌿
+        <!-- Content -->
+        <tr><td style="padding:32px;">
+          <h2 style="font-family:Georgia,serif;font-size:22px;color:#1A3F2A;margin:0 0 14px;">
+            Thank you, ${p.clientName}.
           </h2>
-          <p style="margin:0 0 24px;font-size:14px;color:#6b7c6e;">Thank you for reaching out to Mentisara.</p>
-
-          <p style="font-size:15px;color:#2d3a30;line-height:1.8;margin:0 0 20px;">
-            We have received your therapy application and our clinical coordinator will be in touch with you
-            <strong style="color:#0F2619;">within 24 hours</strong> to confirm your session details.
+          <p style="font-size:14px;color:#4a5a4f;line-height:1.7;margin:0 0 20px;">
+            We have received your application for psychological consultation at Mentisara. Our clinical intake coordinator will review your preferences and connect with you shortly to confirm your session schedule.
           </p>
 
-          <!-- Summary Card -->
-          <div style="background:#f4f9f6;border:1px solid #c8e0d2;border-radius:12px;padding:20px 24px;margin:20px 0;">
-            <p style="margin:0 0 14px;font-size:11px;font-weight:700;color:#1E4D31;text-transform:uppercase;letter-spacing:0.1em;">Your Application Summary</p>
+          <!-- Summary Box -->
+          <div style="background:#faf7f2;border:1px solid #e0dcd5;border-radius:12px;padding:20px;margin:20px 0;">
+            <p style="margin:0 0 12px;font-size:11px;font-weight:700;color:#1A3F2A;text-transform:uppercase;letter-spacing:0.08em;">Your Intake Summary</p>
             <table width="100%" cellpadding="0" cellspacing="0" style="font-size:13px;">
               <tr>
-                <td style="padding:6px 0;color:#5a7061;width:140px;">Application ID:</td>
-                <td style="padding:6px 0;color:#0F2619;font-weight:700;">${p.applicationId}</td>
+                <td style="padding:6px 0;color:#666;width:140px;">Application ID:</td>
+                <td style="padding:6px 0;color:#111;font-weight:700;">${p.applicationId}</td>
               </tr>
               <tr>
-                <td style="padding:6px 0;color:#5a7061;">Service:</td>
-                <td style="padding:6px 0;color:#0F2619;font-weight:600;">${p.service}</td>
+                <td style="padding:6px 0;color:#666;">Service:</td>
+                <td style="padding:6px 0;color:#111;font-weight:600;">${p.service}</td>
               </tr>
               <tr>
-                <td style="padding:6px 0;color:#5a7061;">Preferred Date:</td>
-                <td style="padding:6px 0;color:#0F2619;">${p.preferredDate}</td>
+                <td style="padding:6px 0;color:#666;">Language:</td>
+                <td style="padding:6px 0;color:#111;">${p.preferredLanguage}</td>
               </tr>
               <tr>
-                <td style="padding:6px 0;color:#5a7061;">Preferred Slot:</td>
-                <td style="padding:6px 0;color:#0F2619;">${p.preferredTimeSlot}</td>
+                <td style="padding:6px 0;color:#666;">Preferred Date:</td>
+                <td style="padding:6px 0;color:#111;">${p.preferredDate}</td>
+              </tr>
+              <tr>
+                <td style="padding:6px 0;color:#666;">Preferred Slot:</td>
+                <td style="padding:6px 0;color:#111;">${p.preferredTimeSlot}</td>
               </tr>
             </table>
           </div>
 
-          <p style="font-size:14px;color:#4a5a4f;line-height:1.8;margin:20px 0;">
-            While you wait, please know that your privacy is our highest priority. All information
-            you shared is handled under strict psychological confidentiality standards.
+          <p style="font-size:13px;color:#666;line-height:1.6;margin:16px 0;">
+            All information you shared is protected under strict psychological confidentiality standards.
           </p>
 
-          <!-- WhatsApp CTA -->
-          <div style="text-align:center;margin:28px 0;">
-            <a href="https://wa.me/919740791523?text=Hello%20Mentisara%2C%20I%20just%20submitted%20application%20${p.applicationId}"
-               style="display:inline-block;background:#25D366;color:#ffffff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:12px;text-decoration:none;letter-spacing:0.02em;">
-              💬 Chat on WhatsApp
+          <!-- WhatsApp Link -->
+          <div style="text-align:center;margin:24px 0 10px;">
+            <a href="https://wa.me/919188159149?text=Hello%20Mentisara%2C%20I%20just%20submitted%20application%20${p.applicationId}"
+               style="display:inline-block;background:#25D366;color:#ffffff;font-size:13px;font-weight:700;padding:12px 28px;border-radius:10px;text-decoration:none;">
+              💬 Connect with us on WhatsApp
             </a>
-            <p style="margin:10px 0 0;font-size:11px;color:#8a9a8e;">or email us at <a href="mailto:contact@mentisara.in" style="color:#1E4D31;">contact@mentisara.in</a></p>
           </div>
-
-          <p style="font-size:13px;color:#8a9a8e;border-top:1px solid #ece7e0;padding-top:20px;margin:20px 0 0;line-height:1.7;">
-            This is an automated confirmation. Please do not reply to this email — use the WhatsApp link
-            or contact us directly at <a href="mailto:contact@mentisara.in" style="color:#1E4D31;">contact@mentisara.in</a>
-          </p>
         </td></tr>
 
         <!-- Footer -->
-        <tr><td style="background:#f4f2ee;padding:20px 32px;border-radius:0 0 16px 16px;border-top:1px solid #e0d8cf;text-align:center;">
-          <p style="margin:0;font-size:11px;color:#8a7e72;">
-            <a href="https://www.mentisara.in" style="color:#1E4D31;text-decoration:none;">mentisara.in</a>
-            &nbsp;·&nbsp; Structured & Person-Centred Online Psychotherapy
-          </p>
+        <tr><td style="background:#ede8e1;padding:16px;text-align:center;font-size:11px;color:#777;">
+          Mentisara Practice · Kerala & Worldwide Online Care
         </td></tr>
 
       </table>
