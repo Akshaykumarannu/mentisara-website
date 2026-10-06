@@ -125,7 +125,7 @@ export function AppointmentForm({ preselectedServiceId }: { preselectedServiceId
       errs.primaryConcern = "Please briefly describe what area you would like support with.";
     }
     if (!formData.consentAgreed) {
-      errs.consent = "You must agree to the privacy & confidentiality consent statement.";
+      errs.consent = "You must agree to the privacy & data processing consent statement.";
     }
 
     setErrors(errs);
@@ -198,7 +198,7 @@ export function AppointmentForm({ preselectedServiceId }: { preselectedServiceId
           </h4>
           <ol className="list-decimal pl-5 text-sm text-slate-700 space-y-1.5">
             <li>Our clinical intake team reviews your application details (typically within 24 hours).</li>
-            <li>We connect with you to confirm your schedule and provide confidential video session access.</li>
+            <li>We connect with you to confirm your schedule and provide secure video session access.</li>
             <li>Session details and guidance are shared securely before the consultation.</li>
           </ol>
         </div>
@@ -260,7 +260,7 @@ export function AppointmentForm({ preselectedServiceId }: { preselectedServiceId
           Appointment Application Form
         </h3>
         <p className="text-slate-600 text-xs md:text-sm mt-1">
-          Please fill out the intake details below. All information is strictly confidential.
+          Please fill out the intake details below. All information is handled with strict privacy and care.
         </p>
       </div>
 
@@ -362,7 +362,7 @@ export function AppointmentForm({ preselectedServiceId }: { preselectedServiceId
             ID Proof (Optional)
           </label>
           <p className="text-xs text-slate-500">
-            Optional identity verification. Accepted formats: PDF, JPG, PNG (Max 5MB). Handled strictly under psychological confidentiality standards.
+            Optional identity verification. Accepted formats: PDF, JPG, PNG (Max 5MB). Handled strictly under ethical psychological privacy standards.
           </p>
 
           {!idFile ? (
@@ -490,7 +490,7 @@ export function AppointmentForm({ preselectedServiceId }: { preselectedServiceId
             className="mt-1 h-4 w-4 rounded border-sand-300 text-forest-800 focus:ring-forest-600"
           />
           <label htmlFor="consentAgreed" className="text-xs md:text-sm text-slate-700 leading-normal">
-            I understand that Mentisara provides structured, person-centred psychological services. I consent to having Mentisara process my contact details confidentially for scheduling purposes. <span className="text-[#C47C56] font-bold">*</span>
+            I understand that Mentisara provides structured, person-centred psychological services. I consent to having Mentisara process my contact details securely for scheduling purposes. <span className="text-[#C47C56] font-bold">*</span>
           </label>
         </div>
         {errors.consent && <p className="text-xs text-red-600 font-medium">{errors.consent}</p>}

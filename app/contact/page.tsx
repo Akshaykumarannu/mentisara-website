@@ -143,7 +143,7 @@ export default function ContactPage() {
               <MapPin className="w-6 h-6 text-forest-800 mx-auto" />
               <h4 className="font-serif text-lg font-medium text-forest-950">Kerala & Worldwide Online</h4>
               <p className="text-xs text-slate-600 max-w-xs mx-auto leading-relaxed">
-                All therapy consultations are delivered confidentially through secure online video sessions.
+                All therapy consultations are delivered securely through private online video sessions.
               </p>
             </div>
           </div>

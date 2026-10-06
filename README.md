@@ -6,7 +6,7 @@ Welcome to the complete production-grade website redesign and rebrand for **Ment
 
 ## 1. Project Architecture & Overview
 
-Mentisara is an evidence-informed, person-centred psychotherapy practice offering structured online psychological care, cognitive behavioural therapy (CBT), and emotional resilience training.
+Mentisara is a person-centred, compassionate psychotherapy practice offering structured online psychological care, cognitive behavioural therapy (CBT), and emotional resilience training.
 
 ### Key Highlights Built:
 - **Calm, High-End Visual Identity**: Tailored warm neutral and deep forest green palette (`#1E3A2F`, `#FAF9F5`, `#C87A57`) with editorial typography (Playfair Display + Plus Jakarta Sans).
@@ -33,7 +33,7 @@ mentisara/
 │   ├── about/page.tsx                # About Mentisara, clinical pillars & approach
 │   ├── book-appointment/page.tsx     # Intake application & scheduling flow
 │   ├── contact/page.tsx              # Contact details, map placeholder & inquiry form
-│   ├── privacy-policy/page.tsx       # Confidentiality & privacy policy (client review)
+│   ├── privacy-policy/page.tsx       # Privacy & data protection policy (client review)
 │   ├── terms-and-conditions/page.tsx # Terms of service & crisis helpline disclaimer
 │   ├── resources/
 │   │   ├── page.tsx                  # Psychoeducation & blog with search & category filters

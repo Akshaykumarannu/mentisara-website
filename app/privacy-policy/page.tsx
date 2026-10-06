@@ -6,8 +6,8 @@ import { siteConfig } from "@/lib/site-config";
 import { ShieldCheck, Lock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Confidentiality & Data Protection",
-  description: "Read Mentisara's Privacy Policy and Client Confidentiality guidelines for online psychological consultations.",
+  title: "Privacy Policy | Client Privacy & Data Protection",
+  description: "Read Mentisara's Privacy Policy and Client Privacy guidelines for online psychological consultations.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
           <div className="space-y-4 border-b border-sand-200 pb-6">
             <Badge variant="secondary">Legal & Ethics</Badge>
             <h1 className="text-3xl sm:text-4xl font-serif text-forest-950 font-medium">
-              Privacy & Confidentiality Policy
+              Privacy & Client Protection Policy
             </h1>
             <p className="text-xs text-slate-500">
               Last Updated: September 2026 | Document provided for client review
@@ -38,9 +38,9 @@ export default function PrivacyPolicyPage() {
 
           <div className="space-y-6 text-sm sm:text-base text-slate-700 leading-relaxed">
             <section className="space-y-3">
-              <h2 className="text-xl font-serif text-forest-900 font-semibold">1. Commitment to Client Confidentiality</h2>
+              <h2 className="text-xl font-serif text-forest-900 font-semibold">1. Commitment to Client Privacy & Discretion</h2>
               <p>
-                At Mentisara (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), we recognize the deeply personal nature of psychological therapy and mental health support. We are committed to maintaining the highest degree of ethical confidentiality and data protection for all visitors and clients.
+                At Mentisara (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;), we recognize the deeply personal nature of psychological therapy and mental health support. We are committed to maintaining the highest degree of ethical privacy, discretion, and data protection for all visitors and clients.
               </p>
             </section>
 
@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <ul className="list-disc pl-6 space-y-1">
                 <li>Review and process consultation requests and workshop registrations.</li>
-                <li>Coordinate session scheduling and transmit confidential video connection links.</li>
+                <li>Coordinate session scheduling and transmit secure video connection links.</li>
                 <li>Respond to inquiries submitted via our contact forms.</li>
               </ul>
               <p>
@@ -72,9 +72,9 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section className="space-y-3">
-              <h2 className="text-xl font-serif text-forest-900 font-semibold">4. Session Confidentiality & Ethical Exceptions</h2>
+              <h2 className="text-xl font-serif text-forest-900 font-semibold">4. Session Privacy & Ethical Exceptions</h2>
               <p>
-                Therapy sessions are strictly private. Confidentiality is maintained between you and your psychological practitioner, except under legally mandated exceptions including:
+                Therapy sessions are strictly private. Professional discretion is maintained between you and your psychological practitioner, except under legally mandated exceptions including:
               </p>
               <ul className="list-disc pl-6 space-y-1">
                 <li>Imminent risk of severe harm to self or others.</li>

@@ -8,7 +8,7 @@ import { Calendar, CheckCircle2, ShieldCheck, Heart, UserCheck, Sparkles, Scale 
 
 export const metadata: Metadata = {
   title: "About Us | Person-Centred Psychological Care",
-  description: "Learn about Mentisara's person-centred approach, clinical philosophy, and commitment to confidential, evidence-informed online psychotherapy.",
+  description: "Learn about Mentisara's person-centred approach, clinical philosophy, and commitment to ethical, compassionate online psychotherapy.",
 };
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center space-y-6 mb-16">
           <Badge variant="primary">Our Story & Practice</Badge>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-forest-950 font-medium tracking-tight">
-            Grounded in Empathy, Guided by Evidence.
+            Grounded in Empathy, Guided by Understanding.
           </h1>
           <p className="text-lg sm:text-xl text-slate-700 leading-relaxed">
             Mentisara was established to provide a structured, person-centred therapeutic approach to understanding mental health concerns and supporting individuals through accessible online spaces.
@@ -45,7 +45,7 @@ export default function AboutPage() {
             <div className="p-6 bg-white rounded-3xl border border-sand-300 shadow-soft-sm space-y-3">
               <div className="flex items-center gap-2 text-forest-900 font-semibold">
                 <ShieldCheck className="w-5 h-5 text-terracotta-600" />
-                <span>Confidential Online Environment</span>
+                <span>Private & Secure Online Environment</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-600">
                 All therapy sessions are held via secure, encrypted video links. Your identity and personal history are protected under strict psychological ethics.
@@ -54,12 +54,22 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-6 relative">
-            <div className="rounded-4xl overflow-hidden shadow-elevated border-4 border-white bg-sand-200">
+            <div className="rounded-4xl overflow-hidden shadow-elevated border-4 border-white bg-sand-200 relative group">
               <img
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
-                alt="Safe therapeutic conversation space"
-                className="w-full h-[450px] object-cover"
+                src="/about-page-counseling-session.jpg"
+                alt="Empathetic in-depth psychological counseling dialogue at Mentisara"
+                className="w-full h-[450px] object-cover object-center"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border border-sand-300 shadow-soft-sm flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-forest-100 text-forest-900 border border-forest-200 flex items-center justify-center font-serif font-bold text-sm flex-shrink-0">
+                  M
+                </div>
+                <div>
+                  <p className="text-xs font-serif font-semibold text-forest-950">Person-Centred & Mindfully Guided</p>
+                  <p className="text-[11px] text-slate-600">Private clinical counseling and psychotherapy</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -130,7 +140,7 @@ export default function AboutPage() {
             <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center space-y-3">
               <Scale className="w-8 h-8 text-terracotta-600 mx-auto" />
               <h3 className="font-serif text-lg text-forest-950 font-medium">Ethical Practice</h3>
-              <p className="text-xs text-slate-600">Honoring strict client confidentiality and transparent communication.</p>
+              <p className="text-xs text-slate-600">Honoring strict client privacy, discretion, and transparent communication.</p>
             </div>
             <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center space-y-3">
               <Sparkles className="w-8 h-8 text-forest-700 mx-auto" />

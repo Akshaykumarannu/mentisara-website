@@ -8,7 +8,7 @@ import { buildWhatsAppUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Book an Appointment | Online Psychological Intake Application",
-  description: "Register for an online therapy consultation at Mentisara. Confidential, person-centred psychological support.",
+  description: "Register for an online therapy consultation at Mentisara. Mindful, person-centred psychological support.",
 };
 
 export default function BookAppointmentPage({
@@ -28,7 +28,7 @@ export default function BookAppointmentPage({
             Schedule Your Therapy Intake
           </h1>
           <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed">
-            Please fill out your consultation request below. All information submitted is protected under strict client confidentiality standards.
+            Please fill out your consultation request below. All information submitted is protected under strict client privacy and data protection standards.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function BookAppointmentPage({
           <div className="bg-white p-5 rounded-2xl border border-sand-300 space-y-2">
             <ShieldCheck className="w-6 h-6 text-forest-700 mx-auto" />
             <h4 className="font-serif text-base font-medium text-forest-900">Ethics & Privacy</h4>
-            <p className="text-xs text-slate-600">Strictly confidential handling of personal details.</p>
+            <p className="text-xs text-slate-600">Secure and private handling of personal details.</p>
           </div>
 
           <div className="bg-white p-5 rounded-2xl border border-sand-300 space-y-2">

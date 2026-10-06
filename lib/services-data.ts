@@ -7,8 +7,8 @@ export const servicesData: ServiceItem[] = [
     title: "Individual Psychotherapy",
     badge: "Core Service",
     iconName: "UserCheck",
-    shortDescription: "A confidential, person-centred therapeutic space designed to help you process emotional difficulties, manage anxiety, and foster meaningful self-growth.",
-    fullDescription: "Individual Psychotherapy at Mentisara is an empathetic, evidence-informed collaborative journey. Grounded in a person-centred framework, we focus on understanding your distinct psychological makeup rather than reducing your experience to symptoms. Whether navigating acute stress, chronic anxiety, life transitions, or deep-seated emotional patterns, our sessions offer a safe space to cultivate lasting clarity and resilience.",
+    shortDescription: "A supportive, person-centred therapeutic space designed to help you process emotional difficulties, manage anxiety, and foster meaningful self-growth.",
+    fullDescription: "Individual Psychotherapy at Mentisara is an empathetic, thoughtful collaborative journey. Grounded in a person-centred framework, we focus on understanding your distinct psychological makeup rather than reducing your experience to symptoms. Whether navigating acute stress, chronic anxiety, life transitions, or deep-seated emotional patterns, our sessions offer a safe space to cultivate lasting clarity and resilience.",
     suitableFor: [
       "Individuals experiencing persistent anxiety, panic, or overwhelm",
       "People coping with major life adjustments, grief, or personal distress",
@@ -20,16 +20,16 @@ export const servicesData: ServiceItem[] = [
       "Person-Centred Foundation: Non-judgmental, compassionate, and tailored to your pace",
       "Exploratory Depth: Looking beyond immediate symptoms to understand root underlying themes",
       "Collaborative Goal Setting: Building practical coping tools while exploring inner experiences",
-      "Confidential & Secure: Dedicated online session environment ensuring complete privacy"
+      "Privacy & Security: Dedicated online session environment ensuring complete discretion and safety"
     ],
-    sessionFormat: "1-on-1 Confidential Online Session (Video Call)",
+    sessionFormat: "1-on-1 Private Online Session (Video Call)",
     duration: "50 Minutes per Session",
     priceFormatted: null,
     requiresUpfrontPayment: false,
     faqs: [
       {
         question: "How do I know if Individual Psychotherapy is right for me?",
-        answer: "If you feel overwhelmed by emotional challenges, persistent worry, relationship friction, or simply feel the need for a dedicated, confidential space to understand yourself better, individual therapy can be immensely beneficial."
+        answer: "If you feel overwhelmed by emotional challenges, persistent worry, relationship friction, or simply feel the need for a dedicated, safe space to understand yourself better, individual therapy can be immensely beneficial."
       },
       {
         question: "What happens during our first introductory session?",
@@ -139,7 +139,7 @@ export const servicesData: ServiceItem[] = [
     badge: "Values-Focused",
     iconName: "Shield",
     shortDescription: "Therapy focused on psychological flexibility, acceptance of difficult experiences, and value-based living.",
-    fullDescription: "Acceptance and Commitment Therapy (ACT) is a structured, evidence-based psychotherapy approach that helps individuals develop psychological flexibility by learning to accept difficult internal experiences, reduce unhelpful patterns, and take meaningful action guided by personal values.",
+    fullDescription: "Acceptance and Commitment Therapy (ACT) is a structured, values-oriented psychotherapy approach that helps individuals develop psychological flexibility by learning to accept difficult internal experiences, reduce unhelpful patterns, and take meaningful action guided by personal values.",
     suitableFor: [
       "Individuals caught in struggles with unwanted thoughts or painful memories",
       "People feeling stuck, unmotivated, or disconnected from personal purpose",
@@ -162,8 +162,8 @@ export const servicesData: ServiceItem[] = [
         answer: "The goal of ACT is not to eliminate painful feelings, but to reduce their power over your behavior so you can live a rich, meaningful, values-guided life."
       },
       {
-        question: "Is ACT considered an evidence-based therapy?",
-        answer: "Yes, ACT is an empirically supported, modern behavioural psychotherapy with extensive scientific backing across anxiety, depression, and chronic stress."
+        question: "How does ACT support long-term well-being?",
+        answer: "ACT is an established, values-guided behavioural psychotherapy with extensive clinical depth across anxiety, depression, and chronic stress, empowering you to live authentically."
       }
     ],
     clinicalFocus: [
@@ -222,8 +222,8 @@ export const servicesData: ServiceItem[] = [
     title: "Emotional Regulation & Resilience Training",
     badge: "Skill & Capacity Building",
     iconName: "HeartPulse",
-    shortDescription: "Evidence-based strategies designed to expand emotional tolerance, stabilize mood responses, and build inner strength.",
-    fullDescription: "Emotional Regulation & Resilience Training provides targeted skill acquisition for individuals who experience high emotional intensity, frequent stress overload, or difficulty regaining composure during distress. Through evidence-informed methods drawing from somatic awareness, distress tolerance, and grounding practices, this training helps you build a stable internal anchor.",
+    shortDescription: "Targeted strategies designed to expand emotional tolerance, stabilize mood responses, and build inner strength.",
+    fullDescription: "Emotional Regulation & Resilience Training provides targeted skill acquisition for individuals who experience high emotional intensity, frequent stress overload, or difficulty regaining composure during distress. Through structured methods drawing from somatic awareness, distress tolerance, and grounding practices, this training helps you build a stable internal anchor.",
     suitableFor: [
       "Individuals who feel easily overwhelmed by sudden intense emotions",
       "Professionals coping with high-stress demands and emotional exhaustion",

@@ -15,16 +15,16 @@ export function Footer() {
 
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-5">
-            <Link href="/" className="inline-block group">
+            <Link href="/" className="inline-block group" aria-label="Mentisara Home">
               <BrandLogo size="md" variant="dark" showTagline={true} />
             </Link>
-            <p className="text-sm text-slate-700 leading-relaxed max-w-sm">
-              Evidence-based, person-centred online psychological care designed around your unique needs,
-              delivered in a confidential and compassionate space.
+            <p className="text-sm text-slate-700 leading-relaxed max-w-sm font-normal">
+              Thoughtful, person-centred online psychological care designed around your unique needs,
+              delivered in a safe and compassionate space.
             </p>
-            <div className="flex items-center gap-2 text-xs text-forest-900 font-medium">
-              <ShieldCheck className="w-4 h-4 text-[#C47C56]" />
-              <span>Confidential & Ethics-Guided Online Practice</span>
+            <div className="flex items-center gap-2 text-xs text-forest-950 font-medium">
+              <ShieldCheck className="w-4 h-4 text-[#BD7854]" />
+              <span>Ethics-Guided & Compassionate Online Practice</span>
             </div>
 
             {/* Social Icons */}
@@ -105,7 +105,7 @@ export function Footer() {
                   href={`mailto:${siteConfig.contact.email}`}
                   className="flex items-start gap-2.5 text-slate-700 hover:text-forest-950 transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-[#C47C56] shrink-0 mt-0.5" />
+                  <Mail className="w-4 h-4 text-[#BD7854] shrink-0 mt-0.5" />
                   <span className="break-all">{siteConfig.contact.email}</span>
                 </a>
               </li>
@@ -114,7 +114,7 @@ export function Footer() {
                   href={`tel:${siteConfig.contact.phoneRaw}`}
                   className="flex items-center gap-2.5 text-slate-700 hover:text-forest-950 transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-[#C47C56] shrink-0" />
+                  <Phone className="w-4 h-4 text-[#BD7854] shrink-0" />
                   {siteConfig.contact.phoneDisplay}
                 </a>
               </li>
@@ -128,11 +128,11 @@ export function Footer() {
                   <span className="w-4 h-4 flex items-center justify-center flex-shrink-0">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#25D366]" />
                   </span>
-                  WhatsApp Us
+                  <span>WhatsApp Us</span>
                 </a>
               </li>
               <li className="flex items-start gap-2.5 text-slate-600 text-xs font-medium">
-                <MapPin className="w-3.5 h-3.5 text-[#C47C56] shrink-0 mt-0.5" />
+                <MapPin className="w-3.5 h-3.5 text-[#BD7854] shrink-0 mt-0.5" />
                 <span>Kerala, India · Worldwide Online Care</span>
               </li>
             </ul>

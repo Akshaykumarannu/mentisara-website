@@ -145,7 +145,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
             Begin Your Consultation Process
           </h2>
           <p className="text-slate-600 text-sm max-w-lg mx-auto">
-            Submit an online intake application to reserve your confidential introductory video session.
+            Submit an online intake application to reserve your private introductory video session.
           </p>
           <Link href={`/book-appointment?service=${service.id}`}>
             <Button size="lg" className="bg-[#C47C56] hover:bg-[#B26A44] text-white border-[#B26A44]">

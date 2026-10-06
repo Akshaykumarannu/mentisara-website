@@ -39,7 +39,7 @@ export const resourcesData: ResourceArticle[] = [
     id: "navigating-anxiety-in-daily-life",
     slug: "navigating-anxiety-in-daily-life",
     title: "Navigating Daily Anxiety: Grounding Techniques that Restore Calm",
-    excerpt: "Practical, evidence-informed strategies to regulate your nervous system during moments of acute stress and anxiety overload.",
+    excerpt: "Practical, mindfulness-based strategies to regulate your nervous system during moments of acute stress and anxiety overload.",
     category: "Emotional Regulation",
     author: {
       name: "Mentisara Clinical Team",

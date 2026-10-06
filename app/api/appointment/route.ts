@@ -416,7 +416,7 @@ function buildClientConfirmationHtml(p: {
           </div>
 
           <p style="font-size:13px;color:#666;line-height:1.6;margin:16px 0;">
-            All information you shared is protected under strict psychological confidentiality standards.
+            All information you shared is protected under strict psychological privacy and care standards.
           </p>
 
           <!-- WhatsApp Link -->

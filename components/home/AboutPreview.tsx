@@ -4,104 +4,107 @@ import { ArrowRight, BookOpen, Stethoscope, HeartHandshake, Award } from "lucide
 
 const credentialsAndApproach = [
   {
-    icon: <BookOpen className="w-5 h-5 text-forest-700" />,
-    title: "Evidence-Based Approach",
-    desc: "Grounded in scientifically validated psychological frameworks and therapeutic modalities.",
+    icon: <BookOpen className="w-5 h-5 text-forest-800" />,
+    title: "Tailored & Structured Approach",
+    desc: "Grounded in validated clinical psychological frameworks and thoughtful therapeutic methods.",
+    tagBg: "bg-[#D8EADB]",
   },
   {
-    icon: <Award className="w-5 h-5 text-[#C47C56]" />,
+    icon: <Award className="w-5 h-5 text-[#BD7854]" />,
     title: "Clinical Experience",
     desc: "Guided by dedicated clinical training, professional ethics, and thoughtful practice.",
+    tagBg: "bg-[#F7E2D4]",
   },
   {
-    icon: <Stethoscope className="w-5 h-5 text-forest-700" />,
+    icon: <Stethoscope className="w-5 h-5 text-forest-800" />,
     title: "Psychiatric Care Coordination",
     desc: "Seamless collaborative consultation and doctor coordination whenever medication or medical input is indicated.",
+    tagBg: "bg-[#D8EADB]",
   },
   {
-    icon: <HeartHandshake className="w-5 h-5 text-[#C47C56]" />,
+    icon: <HeartHandshake className="w-5 h-5 text-[#BD7854]" />,
     title: "Person-Centred",
     desc: "Honoring your autonomy, lived experience, and personal pace without rigid labels or pressure.",
+    tagBg: "bg-[#F7E2D4]",
   },
 ];
 
 export function AboutPreview() {
   return (
     <section className="py-20 md:py-28 bg-[#FAF3EB] relative overflow-hidden border-b border-[#E8DBCF]">
-      {/* Decorative ambient elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#F2DAC6]/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#C8E0D2]/40 rounded-full blur-3xl pointer-events-none" />
+      {/* Decorative subtle ambient lights */}
+      <div className="absolute top-0 right-0 w-[480px] h-[480px] bg-[#F2DAC6]/40 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-[#C8E0D2]/35 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* ── LEFT: IMAGE & CREDENTIAL BADGE ── */}
+          {/* ── LEFT: EDITORIAL COUNSELING IMAGE ── */}
           <div className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="relative rounded-3xl overflow-hidden shadow-soft-md border-4 border-white bg-sand-200">
-              <img
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000"
-                alt="Professional, supportive online psychotherapy consultation"
-                className="w-full h-[460px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/40 via-transparent to-transparent" />
+            <div className="relative rounded-[2rem] overflow-hidden shadow-soft-md border border-[#E5D7CA] bg-white p-3 sm:p-3.5 group">
+              <div className="relative rounded-[1.5rem] overflow-hidden bg-[#EFF4F1]">
+                <img
+                  src="/about-mentisara-counseling.jpg"
+                  alt="Empathic psychological counseling consultation — Mentisara"
+                  className="w-full h-[380px] sm:h-[420px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+              </div>
 
-              {/* Overlay Label */}
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-[#E8DBCF] shadow-soft-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-forest-100 text-forest-900 border border-forest-200 flex items-center justify-center font-serif font-bold text-base">
-                    M
-                  </div>
-                  <div>
-                    <p className="text-sm font-serif font-semibold text-forest-950">Mentisara Practice</p>
-                    <p className="text-xs text-slate-500">Confidential & Person-Centred Care</p>
-                  </div>
+              {/* Bottom Credential Bar */}
+              <div className="mt-3 bg-[#FAF5EE] rounded-2xl p-3.5 border border-[#E8DBCF] flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-[#D6E7DC] text-forest-900 border border-[#BED7C7] flex items-center justify-center font-serif font-bold text-sm flex-shrink-0">
+                  M
+                </div>
+                <div>
+                  <p className="text-xs font-serif font-semibold text-forest-950">Mentisara Clinical Psychotherapy</p>
+                  <p className="text-[11px] text-slate-600">A collaborative space to understand you beyond the surface</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* ── RIGHT: COPY & 4 KEY CREDENTIALS ── */}
+          {/* ── RIGHT: EDITORIAL COPY & 4 KEY CREDENTIALS ── */}
           <div className="lg:col-span-7 space-y-7 order-1 lg:order-2">
 
             <div>
-              <div className="inline-flex items-center gap-2 bg-[#DDECE2] text-forest-900 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-[#BED6C5] mb-4">
+              <div className="inline-flex items-center gap-2 bg-[#DDECE2] text-forest-950 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-[#BED6C5] mb-4 shadow-soft-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-forest-600" />
                 About Mentisara
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-forest-950 font-medium tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-forest-950 font-medium tracking-tight leading-[1.15]">
                 Understanding You{" "}
-                <span className="italic font-normal text-[#C47C56]">
+                <span className="italic font-normal text-[#BD7854]">
                   Beyond the Surface
                 </span>
               </h2>
-              <div className="section-divider-left mt-4" />
+              <div className="section-divider-left mt-3.5" />
             </div>
 
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
               At Mentisara, we believe that emotional well-being begins when you feel truly heard and
               understood. Rather than applying rigid templates or reductionist labels, our practice focuses
               on understanding your distinct psychological makeup through a structured and person-centred
               therapeutic approach.
             </p>
 
-            <blockquote className="text-sm text-slate-700 leading-relaxed italic border-l-4 border-[#C47C56] pl-4 bg-white/80 py-3 rounded-r-xl border border-l-0 border-[#E8DBCF] shadow-soft-sm">
+            <blockquote className="text-sm text-slate-700 leading-relaxed italic border-l-3 border-[#BD7854] pl-4 bg-white/90 py-3.5 rounded-r-2xl border border-l-0 border-[#E8DBCF] shadow-soft-sm">
               &ldquo;Every person&apos;s emotional experience is valid and unique. Our role is to walk alongside
               you as collaborative partners in your healing, self-discovery, and sustainable growth.&rdquo;
             </blockquote>
 
-            {/* ── CREDENTIALS / OUR APPROACH (4 POINTS) ── */}
+            {/* ── CREDENTIALS / OUR APPROACH (4 REFINED CARDS) ── */}
             <div className="pt-2">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-forest-900 mb-4">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-forest-950 mb-3.5">
                 Our Approach & Credentials
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {credentialsAndApproach.map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-2xl bg-white border border-[#E2D5C5] shadow-soft-sm hover:border-forest-300 transition-colors space-y-1.5"
+                    className="p-4 rounded-2xl bg-white border border-[#E2D5C5] shadow-soft-sm hover:border-forest-300 hover:shadow-soft-md transition-all duration-300 hover:-translate-y-1 space-y-1.5 group"
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="p-1.5 rounded-lg bg-[#F5ECE1]">
+                      <div className={`p-1.5 rounded-xl ${item.tagBg} border border-sand-200/80 transition-transform duration-300 group-hover:scale-105`}>
                         {item.icon}
                       </div>
                       <h4 className="text-sm font-semibold text-forest-950">{item.title}</h4>
@@ -114,14 +117,14 @@ export function AboutPreview() {
               </div>
             </div>
 
-            {/* Read more link */}
+            {/* Read more link with animated line */}
             <div className="pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-forest-900 hover:text-[#C47C56] transition-colors group"
+                className="editorial-link text-sm font-semibold text-forest-950 hover:text-[#BD7854] transition-colors group"
               >
                 <span>Read more about our philosophy and practice</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </div>
 

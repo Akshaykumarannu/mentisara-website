@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Psychological Services | Evidence-Based Online Therapy",
+  title: "Psychological Services | Person-Centred Online Therapy",
   description: "Explore Mentisara's structured therapy offerings: Individual Psychotherapy, CBT, DBT, ACT, Family & Couple Therapy, Emotional Regulation, and Collaborative Psychiatric Care.",
 };
 
@@ -59,7 +59,7 @@ export default function ServicesPage() {
             Tailored Psychological Support
           </h1>
           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-            Grounding care in scientific rigor and person-centred respect. We provide focused, confidential online therapy designed to meet your specific emotional needs.
+            Grounding care in clinical expertise and person-centred respect. We provide focused, supportive online therapy designed to meet your specific emotional needs.
           </p>
         </div>
 
@@ -198,7 +198,7 @@ export default function ServicesPage() {
               <p className="text-xs text-slate-600">Therapy sessions align with medical recommendations for comprehensive care.</p>
             </div>
             <div className="p-4 rounded-2xl bg-sand-50 border border-sand-200 space-y-1">
-              <h5 className="font-semibold text-xs uppercase tracking-wider text-forest-900">Confidentiality Assured</h5>
+              <h5 className="font-semibold text-xs uppercase tracking-wider text-forest-900">Privacy & Discretion Assured</h5>
               <p className="text-xs text-slate-600">Information sharing occurs solely with your explicit written consent under medical ethics.</p>
             </div>
           </div>

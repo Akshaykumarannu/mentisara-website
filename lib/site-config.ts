@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Mentisara",
   tagline: "The Essence of the Mind",
-  description: "Mentisara provides evidence-informed, person-centred online psychotherapy, cognitive behavioural therapy, and emotional resilience training tailored for individuals seeking confidential mental health support.",
+  description: "Mentisara provides thoughtful, person-centred online psychotherapy, cognitive behavioural therapy, and emotional resilience training tailored for individuals seeking private mental health support.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.mentisara.in",
   ogImage: "https://www.mentisara.in/images/og-mentisara.jpg",
 
@@ -43,7 +43,7 @@ export const siteConfig = {
       "emotional regulation training",
       "mental health support India",
       "psychological consultation online",
-      "confidential mental health counselling",
+      "ethical mental health counselling",
       "resilience coaching",
       "mentisara talks",
     ],

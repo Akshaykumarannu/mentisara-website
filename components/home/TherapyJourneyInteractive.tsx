@@ -22,13 +22,13 @@ export function TherapyJourneyInteractive() {
     {
       id: 1,
       num: "01",
-      title: "Confidential Application Intake",
+      title: "Seamless Application Intake",
       shortDesc: "Submit your intake request in under 2 minutes.",
       fullDesc: "Complete our secure intake form sharing your preferred contact mode, scheduling window, and the primary areas you would like support with. No sensitive history required upfront.",
       keyAction: "Simple, private online form with zero spam.",
       icon: <FileText className="w-6 h-6 text-forest-800" />,
       highlightPoints: [
-        "100% confidential submission",
+        "Safe & ethical submission process",
         "Choose your preferred therapy style",
         "Specify convenient morning/evening slots"
       ]
@@ -57,7 +57,7 @@ export function TherapyJourneyInteractive() {
       icon: <Shield className="w-6 h-6 text-forest-800" />,
       highlightPoints: [
         "Safe, non-judgmental conversational atmosphere",
-        "Evidence-informed CBT & emotional tools",
+        "Thoughtful & tailored psychological tools",
         "You always dictate the pace of sharing"
       ]
     },

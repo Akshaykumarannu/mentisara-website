@@ -3,10 +3,11 @@ import { TrustStrip } from "@/components/home/TrustStrip";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { ValuesSection } from "@/components/home/ValuesSection";
+import { SelfAssessmentQuiz } from "@/components/home/SelfAssessmentQuiz";
 import { ApproachSection } from "@/components/home/ApproachSection";
 import { ResourcePreview } from "@/components/home/ResourcePreview";
-import { TestimonialSection } from "@/components/home/TestimonialSection";
 import { SpecializedCareSection } from "@/components/home/SpecializedCareSection";
+import { TestimonialSection } from "@/components/home/TestimonialSection";
 import { AppointmentCTA } from "@/components/home/AppointmentCTA";
 
 export default function HomePage() {
@@ -15,7 +16,7 @@ export default function HomePage() {
       {/* 2. Hero section */}
       <HeroSection />
 
-      {/* 3. Trust / confidentiality indicators */}
+      {/* 3. Trust & care indicators */}
       <TrustStrip />
 
       {/* 4. About Mentisara & 5. Credentials / Our Approach */}
@@ -27,19 +28,22 @@ export default function HomePage() {
       {/* 7. Practice Philosophy / Principles */}
       <ValuesSection />
 
-      {/* 8. Therapeutic Process */}
+      {/* 8. 1-Minute Emotional Check-In (Placed before Therapeutic Process) */}
+      <SelfAssessmentQuiz />
+
+      {/* 9. Therapeutic Process */}
       <ApproachSection />
 
-      {/* 9. Insights & Resources */}
+      {/* 10. Insights & Resources */}
       <ResourcePreview />
-
-      {/* 10. Client Experiences */}
-      <TestimonialSection />
 
       {/* 11. Specialized Care / Areas We Support */}
       <SpecializedCareSection />
 
-      {/* 12. Final CTA */}
+      {/* 12. Client Experiences / Perspectives (Placed after Specialized Care) */}
+      <TestimonialSection />
+
+      {/* 13. Final CTA */}
       <AppointmentCTA />
     </>
   );
