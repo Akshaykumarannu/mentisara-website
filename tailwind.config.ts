@@ -76,6 +76,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ['var(--font-playfair)', 'Georgia', 'serif'],
+        display: ['var(--font-playfair)', 'Georgia', 'serif'],
         sans:  ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
       },
       boxShadow: {

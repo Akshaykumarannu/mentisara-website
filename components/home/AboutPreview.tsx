@@ -56,7 +56,7 @@ export function AboutPreview() {
                   M
                 </div>
                 <div>
-                  <p className="text-xs font-serif font-semibold text-forest-950">Mentisara Clinical Psychotherapy</p>
+                  <p className="text-xs font-serif font-semibold text-forest-950">Evidence-Based Psychotherapy</p>
                   <p className="text-[11px] text-slate-600">A collaborative space to understand you beyond the surface</p>
                 </div>
               </div>
@@ -80,14 +80,14 @@ export function AboutPreview() {
               <div className="section-divider-left mt-3.5" />
             </div>
 
-            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal text-justify">
               At Mentisara, we believe that emotional well-being begins when you feel truly heard and
               understood. Rather than applying rigid templates or reductionist labels, our practice focuses
               on understanding your distinct psychological makeup through a structured and person-centred
               therapeutic approach.
             </p>
 
-            <blockquote className="text-sm text-slate-700 leading-relaxed italic border-l-3 border-[#BD7854] pl-4 bg-white/90 py-3.5 rounded-r-2xl border border-l-0 border-[#E8DBCF] shadow-soft-sm">
+            <blockquote className="text-sm text-slate-700 leading-relaxed italic border-l-3 border-[#BD7854] pl-4 bg-white/90 py-3.5 rounded-r-2xl border border-l-0 border-[#E8DBCF] shadow-soft-sm text-justify">
               &ldquo;Every person&apos;s emotional experience is valid and unique. Our role is to walk alongside
               you as collaborative partners in your healing, self-discovery, and sustainable growth.&rdquo;
             </blockquote>
@@ -109,7 +109,7 @@ export function AboutPreview() {
                       </div>
                       <h4 className="text-sm font-semibold text-forest-950">{item.title}</h4>
                     </div>
-                    <p className="text-xs text-slate-600 leading-relaxed pl-1">
+                    <p className="text-xs text-slate-600 leading-relaxed pl-1 text-justify">
                       {item.desc}
                     </p>
                   </div>

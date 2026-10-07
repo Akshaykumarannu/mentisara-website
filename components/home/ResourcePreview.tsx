@@ -75,11 +75,11 @@ export function ResourcePreview() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg md:text-xl font-serif font-medium text-forest-950 leading-snug line-clamp-2 group-hover:text-[#BD7854] transition-colors">
+                  <h3 className="text-xl md:text-2xl font-serif font-semibold text-forest-950 leading-snug line-clamp-2 group-hover:text-[#BD7854] transition-colors">
                     <Link href={`/resources/${art.slug}`}>{art.title}</Link>
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3 font-normal">
+                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed line-clamp-3 font-normal">
                     {art.excerpt}
                   </p>
                 </div>
@@ -88,10 +88,10 @@ export function ResourcePreview() {
               <div className="p-6 sm:p-7 pt-0">
                 <Link
                   href={`/resources/${art.slug}`}
-                  className="editorial-link text-xs font-semibold text-forest-950 hover:text-[#BD7854] transition-colors"
+                  className="editorial-link text-sm font-semibold text-forest-950 hover:text-[#BD7854] transition-colors"
                 >
                   <span>Read Full Article</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </Link>
               </div>
             </article>

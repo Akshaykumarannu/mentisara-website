@@ -104,31 +104,31 @@ export function SelfAssessmentQuiz() {
               <Sparkles className="w-3.5 h-3.5 text-forest-700" />
               <span>1-MINUTE EMOTIONAL CHECK-IN</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-forest-950 font-medium tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-forest-950 font-medium tracking-tight leading-tight">
               Not Sure Which Therapy Approach You Need?
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
-              Answer 2 simple questions to receive an instant, non-judgmental care suggestion.
+            <p className="text-sm sm:text-base text-slate-700 max-w-lg mx-auto leading-relaxed">
+              Answer 2 simple questions to receive a personalised care recommendation.
             </p>
           </div>
 
           {/* Interactive Steps 1 & 2 */}
           {step <= 2 ? (
             <div className="max-w-2xl mx-auto space-y-6">
-              <div className="flex items-center justify-between text-xs text-slate-500 font-semibold uppercase tracking-wider">
+              <div className="flex items-center justify-between text-xs text-slate-600 font-bold uppercase tracking-wider">
                 <span>STEP {step} OF 2</span>
                 <span>{step === 1 ? "50% COMPLETE" : "ALMOST DONE"}</span>
               </div>
 
               {/* Smooth Progress Bar */}
-              <div className="w-full h-2 bg-[#E5DDD2] rounded-full overflow-hidden">
+              <div className="w-full h-2.5 bg-[#E5DDD2] rounded-full overflow-hidden">
                 <div
                   className="h-full bg-forest-800 transition-all duration-300 rounded-full"
                   style={{ width: `${step * 50}%` }}
                 />
               </div>
 
-              <h3 className="text-lg sm:text-xl font-serif text-forest-950 font-medium pt-2">
+              <h3 className="text-xl sm:text-2xl font-serif text-forest-950 font-semibold pt-2">
                 {questions[step - 1].title}
               </h3>
 
@@ -137,7 +137,7 @@ export function SelfAssessmentQuiz() {
                   <button
                     key={i}
                     onClick={() => handleSelect(opt.value)}
-                    className="p-4 rounded-2xl bg-white border border-[#DCD3C7] hover:border-forest-600 hover:bg-[#F2ECE3] text-left text-xs sm:text-sm font-medium text-forest-950 transition-all duration-200 shadow-soft-sm hover:shadow-soft-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-forest-600 cursor-pointer"
+                    className="p-4 rounded-2xl bg-white border border-[#DCD3C7] hover:border-forest-600 hover:bg-[#F2ECE3] text-left text-sm sm:text-base font-medium text-forest-950 transition-all duration-200 shadow-soft-sm hover:shadow-soft-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-forest-600 cursor-pointer"
                   >
                     {opt.label}
                   </button>

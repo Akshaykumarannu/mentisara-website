@@ -24,61 +24,61 @@ interface CareTopic {
 const careTopics: CareTopic[] = [
   {
     title: "Personality-related concerns",
-    desc: "Understanding recurring emotional patterns and relational dynamics.",
+    desc: "Sometimes, the patterns we struggle with are attempts to protect parts of ourselves. Understanding them can be the beginning of meaningful change.",
     icon: <UserCheck className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
   {
     title: "Relationships",
-    desc: "Addressing communication patterns, conflict, and trust.",
+    desc: "The way we connect with  others is often shaped by experiences we carry within us. Understanding these patterns can open the way to healthier connection.",
     icon: <HeartHandshake className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
   {
     title: "Adjustmental Issues",
-    desc: "Managing psychological stress when adapting to new life demands.",
+    desc: "Not every change is easy to adapt to. When life no longer feels familiar, therapy can offer space to understand, adjust, and find your footing again.",
     icon: <GitBranch className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
   {
     title: "Depression",
-    desc: "Reconnecting with motivation, self-worth, and inner clarity.",
+    desc: "Sometimes, it is not that you have stopped caring—it is that you have been carrying too much for too long. Therapy can help you reconnect with yourself, gradually and without judgment.",
     icon: <CloudRain className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
   },
   {
     title: "Trauma",
-    desc: "Processing past experiences in a safe, paced therapeutic setting.",
+    desc: "What happened to you can continue to influence how you feel, think, trust, and respond today. Healing begins with having a safe space to understand those experiences.",
     icon: <ShieldCheck className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
   },
   {
     title: "Self-Esteem",
-    desc: "Softening internal criticism and strengthening self-compassion.",
+    desc: "The way you speak to yourself shapes the way you experience your life. Therapy can help you move from constant self-judgment toward greater self-understanding and compassion.",
     icon: <Smile className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
   {
     title: "Life Transitions",
-    desc: "Finding direction during career changes, relocation, or loss.",
+    desc: "Some changes are chosen; others are forced upon us. Therapy can help you make sense of what has changed and discover who you are becoming.",
     icon: <Compass className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
   },
   {
     title: "Grief",
-    desc: "Honoring emotional pain, bereavement, and personal loss.",
+    desc: "Healing does not mean forgetting or leaving the past behind. It means learning to live with what has changed while making space for life to continue.",
     icon: <Feather className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
   },
   {
     title: "Anxiety",
-    desc: "Navigating worry loops, physical tension, and acute panic.",
+    desc: "When your mind is constantly preparing for what might go wrong, even the present can become difficult to experience. Therapy can help you understand the cycle and regain a sense of steadiness.",
     icon: <Sparkles className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
   },
   {
     title: "Burnout",
-    desc: "Recovering emotional energy and establishing workplace boundaries.",
+    desc: "When constantly coping becomes a way of life, exhaustion can begin to feel normal. Therapy can help you recognise the cost, restore yourself, and create healthier ways of living.",
     icon: <Flame className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
@@ -104,7 +104,7 @@ export function SpecializedCareSection() {
             <span className="italic font-normal text-[#BD7854]">Support</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto font-normal">
-            Personalized psychological support tailored to your unique challenges, personal goals, and emotional journey.
+            Individualised care designed around your needs, goals and wellbeing.
           </p>
           <div className="section-divider mt-2" />
         </div>
@@ -118,14 +118,14 @@ export function SpecializedCareSection() {
             >
               <div className="space-y-2.5">
                 <div
-                  className={`w-9 h-9 rounded-xl ${topic.iconBg} flex items-center justify-center border border-sand-200/80 shadow-soft-sm transition-transform duration-300 group-hover:scale-105`}
+                  className={`w-10 h-10 rounded-xl ${topic.iconBg} flex items-center justify-center border border-sand-200/80 shadow-soft-sm transition-transform duration-300 group-hover:scale-105`}
                 >
                   {topic.icon}
                 </div>
-                <h3 className="font-serif text-base font-semibold text-forest-950 leading-snug">
+                <h3 className="font-serif text-lg font-semibold text-forest-950 leading-snug">
                   {topic.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm text-slate-700 leading-relaxed font-normal">
                   {topic.desc}
                 </p>
               </div>
@@ -133,10 +133,10 @@ export function SpecializedCareSection() {
               <div className="pt-2">
                 <Link
                   href="/book-appointment"
-                  className="editorial-link text-[11px] font-semibold text-forest-950 hover:text-[#BD7854] transition-colors inline-flex items-center gap-1 group/link"
+                  className="editorial-link text-xs font-semibold text-forest-950 hover:text-[#BD7854] transition-colors inline-flex items-center gap-1 group/link"
                 >
                   <span>Inquire</span>
-                  <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover/link:translate-x-0.5" />
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5" />
                 </Link>
               </div>
             </div>

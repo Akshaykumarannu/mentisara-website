@@ -20,6 +20,13 @@ const homeServices: HomeServiceCard[] = [
     iconBg: "bg-[#D4E8DC]",
   },
   {
+    id: "family-couple-therapy",
+    slug: "family-couple-therapy",
+    name: "Family & Couple Therapy",
+    icon: <Users className="w-5 h-5 text-forest-800" />,
+    iconBg: "bg-[#D4E8DC]",
+  },
+  {
     id: "cognitive-behavioural-therapy",
     slug: "cognitive-behavioural-therapy",
     name: "Cognitive Behavioural Therapy (CBT)",
@@ -40,13 +47,7 @@ const homeServices: HomeServiceCard[] = [
     icon: <Shield className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
-  {
-    id: "family-couple-therapy",
-    slug: "family-couple-therapy",
-    name: "Family & Couple Therapy",
-    icon: <Users className="w-5 h-5 text-forest-800" />,
-    iconBg: "bg-[#D4E8DC]",
-  },
+  
   {
     id: "emotional-regulation-resilience",
     slug: "emotional-regulation-resilience",
@@ -88,7 +89,7 @@ export function ServicesGrid() {
           {homeServices.map((service) => (
             <div
               key={service.id}
-              className="group bg-white rounded-2xl p-5 sm:p-6 border border-[#CADBD0] shadow-soft-sm hover:shadow-soft-md transition-all duration-300 hover:-translate-y-1.5 hover:border-forest-300 flex flex-col justify-between relative overflow-hidden"
+              className="group bg-white rounded-3xl p-6 sm:p-7 border border-[#CADBD0]/90 shadow-[0_4px_20px_-4px_rgba(20,38,28,0.05)] hover:shadow-[0_18px_38px_-8px_rgba(20,38,28,0.09)] transition-all duration-300 hover:-translate-y-1.5 hover:border-forest-300 flex flex-col justify-between relative overflow-hidden"
             >
               {/* Subtle top accent line on hover */}
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#BD7854] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -100,7 +101,7 @@ export function ServicesGrid() {
                   {service.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-serif text-forest-950 font-semibold leading-snug pt-1">
+                  <h3 className="text-lg sm:text-xl font-serif text-forest-950 font-semibold leading-snug pt-0.5">
                     {service.name}
                   </h3>
                 </div>

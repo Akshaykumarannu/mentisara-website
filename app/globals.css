@@ -69,6 +69,11 @@
     line-height: 1.65;
   }
 
+  h1, h2, h3, h4, .font-serif {
+    font-feature-settings: "liga" 1, "dlig" 1;
+    letter-spacing: -0.015em;
+  }
+
   ::selection {
     background-color: #D3E6DC;
     color: #12281B;
@@ -135,7 +140,7 @@
 .bg-tint-peach { background-color: #FAF1E8; }
 
 /* ═══════════════════════════════════════════
-   PREMIUM EDITORIAL SURFACES & SHADOWS
+   PREMIUM EDITORIAL & LUXURY SURFACES
    ═══════════════════════════════════════════ */
 
 .editorial-card {
@@ -151,27 +156,70 @@
   border-color: rgba(188, 214, 198, 0.9);
 }
 
+/* Luxury Glass Surface */
+.luxury-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 218, 206, 0.7);
+  box-shadow: 0 4px 20px -2px rgba(22, 36, 28, 0.04);
+}
+
+/* Luxury Card with refined bevel and elevation */
+.luxury-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 218, 206, 0.85);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px -4px rgba(22, 36, 28, 0.04), 0 1px 3px rgba(22, 36, 28, 0.02);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(22, 36, 28, 0.09), 0 0 0 1px rgba(189, 120, 84, 0.15);
+  border-color: rgba(188, 212, 198, 0.85);
+}
+
+/* Luxury Pill / Badge */
+.luxury-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #143622;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(190, 212, 198, 0.85);
+  box-shadow: 0 2px 8px -2px rgba(22, 36, 28, 0.04);
+}
+
 /* ═══════════════════════════════════════════
    EDITORIAL TYPOGRAPHY UTILITIES
    ═══════════════════════════════════════════ */
 
 .display-title {
-  font-family: var(--font-playfair);
+  font-family: var(--font-playfair), Georgia, serif;
   letter-spacing: -0.02em;
   line-height: 1.15;
 }
 
 .section-divider {
-  width: 44px;
-  height: 2.5px;
+  width: 48px;
+  height: 2px;
   background: linear-gradient(90deg, #BD7854, #E5B296);
   border-radius: 99px;
   margin: 0 auto;
 }
 
 .section-divider-left {
-  width: 44px;
-  height: 2.5px;
+  width: 48px;
+  height: 2px;
   background: linear-gradient(90deg, #BD7854, #E5B296);
   border-radius: 99px;
 }

@@ -25,26 +25,26 @@ export default function HomePage() {
       {/* 6. Our Services (6 keyword/overview cards) */}
       <ServicesGrid />
 
-      {/* 7. Practice Philosophy / Principles */}
+      {/* Practice Philosophy / Principles */}
       <ValuesSection />
 
-      {/* 8. 1-Minute Emotional Check-In (Placed before Therapeutic Process) */}
-      <SelfAssessmentQuiz />
-
-      {/* 9. Therapeutic Process */}
-      <ApproachSection />
-
-      {/* 10. Insights & Resources */}
-      <ResourcePreview />
-
-      {/* 11. Specialized Care / Areas We Support */}
+      {/* Specialized Care / Areas We Support */}
       <SpecializedCareSection />
 
-      {/* 12. Client Experiences / Perspectives (Placed after Specialized Care) */}
-      <TestimonialSection />
+      {/* Therapeutic Process */}
+      <ApproachSection />
 
-      {/* 13. Final CTA */}
+      {/* Insights & Resources */}
+      <ResourcePreview />
+
+      {/* Check list / 1-Minute Emotional Check-In */}
+      <SelfAssessmentQuiz />
+
+      {/* Ready to Take First Step / Appointment CTA */}
       <AppointmentCTA />
+
+      {/* Review & Rating / Client Experiences */}
+      <TestimonialSection />
     </>
   );
 }

@@ -26,10 +26,10 @@ export function TestimonialSection() {
             <span className="w-1.5 h-1.5 rounded-full bg-forest-600" />
             Client Reflections
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-forest-950 font-medium tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-forest-950 font-medium tracking-tight">
             Reflections of Healing & Growth
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+          <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
             Real experiences from individuals supported through our practice.
           </p>
         </div>
@@ -65,21 +65,21 @@ export function TestimonialSection() {
             </div>
 
             {/* Review Quote */}
-            <p className="text-sm sm:text-base text-forest-950 font-serif italic leading-relaxed mb-5">
+            <p className="text-base sm:text-lg text-forest-950 font-serif italic leading-relaxed mb-6">
               &ldquo;{active.content}&rdquo;
             </p>
 
             {/* Client Signature & Navigation */}
-            <div className="flex items-center justify-between border-t border-sand-200/90 pt-3.5">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-[#D4E8DC] text-forest-950 border border-[#BED4C6] font-bold flex items-center justify-center text-xs shadow-soft-sm flex-shrink-0">
+            <div className="flex items-center justify-between border-t border-sand-200/90 pt-4">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-[#D4E8DC] text-forest-950 border border-[#BED4C6] font-bold flex items-center justify-center text-xs shadow-soft-sm flex-shrink-0">
                   {active.initials}
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-forest-950 leading-tight">
+                  <p className="text-sm font-semibold text-forest-950 leading-tight">
                     {active.clientName}
                   </p>
-                  <p className="text-[11px] text-slate-500">
+                  <p className="text-xs text-slate-500">
                     {active.location}
                   </p>
                 </div>
@@ -89,20 +89,20 @@ export function TestimonialSection() {
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={prev}
-                  className="w-8 h-8 rounded-lg border border-[#BED4C6] bg-white hover:bg-sand-50 text-forest-950 flex items-center justify-center transition-all hover:-translate-y-0.5 shadow-soft-sm active:translate-y-0 cursor-pointer"
+                  className="w-9 h-9 rounded-lg border border-[#BED4C6] bg-white hover:bg-sand-50 text-forest-950 flex items-center justify-center transition-all hover:-translate-y-0.5 shadow-soft-sm active:translate-y-0 cursor-pointer"
                   aria-label="Previous review"
                 >
-                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <ArrowLeft className="w-4 h-4" />
                 </button>
-                <span className="text-[11px] text-slate-500 font-medium px-1">
+                <span className="text-xs text-slate-600 font-medium px-1.5">
                   {activeIdx + 1}/{testimonialsData.length}
                 </span>
                 <button
                   onClick={next}
-                  className="w-8 h-8 rounded-lg border border-[#BED4C6] bg-white hover:bg-sand-50 text-forest-950 flex items-center justify-center transition-all hover:-translate-y-0.5 shadow-soft-sm active:translate-y-0 cursor-pointer"
+                  className="w-9 h-9 rounded-lg border border-[#BED4C6] bg-white hover:bg-sand-50 text-forest-950 flex items-center justify-center transition-all hover:-translate-y-0.5 shadow-soft-sm active:translate-y-0 cursor-pointer"
                   aria-label="Next review"
                 >
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -110,8 +110,8 @@ export function TestimonialSection() {
           </div>
 
           {/* Privacy Note */}
-          <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-600 font-medium mt-3">
-            <ShieldCheck className="w-3.5 h-3.5 text-forest-700" />
+          <div className="flex items-center justify-center gap-1.5 text-xs text-slate-600 font-medium mt-3.5">
+            <ShieldCheck className="w-4 h-4 text-forest-700" />
             <span>Anonymized to protect personal privacy & identity</span>
           </div>
         </div>

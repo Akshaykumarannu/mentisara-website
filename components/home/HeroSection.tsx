@@ -65,7 +65,7 @@ export function HeroSection() {
                 </span>
               </h1>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-xl font-normal">
-                No two journeys are alike. Every individual carries a unique world of experiences, emotions, thoughts, and perspectives that shape who they are. We are here for yours, offering a safe and confidential space through secure online sessions.
+                Every journey is unique. Each individual carries a unique world of experiences, emotions, thoughts, and perspectives that shape who they are. We are here for yours, offering a safe and confidential space through secure online sessions.
               </p>
             </div>
 

@@ -44,10 +44,10 @@ export function AppointmentCTA() {
 
         {/* Heading with Display Serif */}
         <div className="space-y-4">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium tracking-tight text-forest-950 leading-[1.15]">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-forest-950 leading-[1.12]">
             Ready to Take the First Step
             <br className="hidden sm:inline" />
-            <span className="italic font-normal text-[#BD7854]">
+            <span className="italic font-medium text-[#BD7854]">
               {" "}Towards Emotional Clarity?
             </span>
           </h2>
@@ -71,9 +71,9 @@ export function AppointmentCTA() {
                 <div className={`p-1.5 rounded-xl ${feat.iconBg} border border-sand-200/80`}>
                   {feat.icon}
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-forest-950">{feat.title}</span>
+                <span className="text-sm font-bold uppercase tracking-wider text-forest-950">{feat.title}</span>
               </div>
-              <p className="text-xs text-slate-600 leading-relaxed pl-0.5">{feat.desc}</p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pl-0.5">{feat.desc}</p>
             </div>
           ))}
         </div>

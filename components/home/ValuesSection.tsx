@@ -26,14 +26,14 @@ const values = [
   {
     icon: <Compass className="w-5 h-5 text-forest-800" />,
     title: "Individuality",
-    desc: "Honoring that no two psychological journeys are identical; tailoring therapy around you.",
+    desc: "Understanding the uniqueness of each person's experiences and tailoring care to their individual needs, strengths, and circumstances.",
     iconBg: "bg-[#D8EADB]",
     accentLine: "bg-forest-600",
   },
   {
     icon: <Award className="w-5 h-5 text-forest-800" />,
     title: "Respect & Autonomy",
-    desc: "Empowering you as an active collaborator in your own emotional growth and recovery.",
+    desc: "Honouring your choices, values, and perspectives, while empowering you to take an active role in your growth and recovery..",
     iconBg: "bg-[#D8EADB]",
     accentLine: "bg-forest-600",
   },
@@ -66,7 +66,7 @@ export function ValuesSection() {
             <span className="italic font-normal text-[#BD7854]">Guide Our Care</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
-            Every interaction at Mentisara is built upon clinical rigor, ethical standards, and genuine human empathy.
+            Every interaction at Mentisara is grounded in evidence-based practice, ethical standards, and genuine human empathy.
           </p>
           <div className="section-divider mt-2" />
         </div>
@@ -76,7 +76,7 @@ export function ValuesSection() {
           {values.map((v, i) => (
             <div
               key={i}
-              className="group bg-white rounded-2xl border border-[#DED1C2] shadow-soft-sm hover:shadow-soft-md transition-all duration-300 hover:-translate-y-1 p-6 sm:p-7 space-y-4 relative overflow-hidden"
+              className="group bg-white rounded-3xl border border-[#DED1C2]/90 shadow-[0_4px_20px_-4px_rgba(20,38,28,0.05)] hover:shadow-[0_16px_36px_-8px_rgba(20,38,28,0.09)] transition-all duration-300 hover:-translate-y-1.5 p-6 sm:p-7 space-y-4 relative overflow-hidden"
             >
               {/* Subtle top indicator */}
               <div className={`absolute top-0 left-0 right-0 h-0.5 ${v.accentLine} opacity-80`} />

@@ -24,7 +24,7 @@ export default function AboutPage() {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-forest-950 font-medium tracking-tight">
             Grounded in Empathy, Guided by Understanding.
           </h1>
-          <p className="text-lg sm:text-xl text-slate-700 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed text-justify max-w-3xl mx-auto">
             Mentisara was established to provide a structured, person-centred therapeutic approach to understanding mental health concerns and supporting individuals through accessible online spaces.
           </p>
         </div>
@@ -35,10 +35,10 @@ export default function AboutPage() {
             <h2 className="text-3xl font-serif text-forest-950 font-medium">
               The Mentisara Approach
             </h2>
-            <p className="text-slate-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed text-justify text-base sm:text-lg">
               In a fast-paced world, emotional distress is often reduced to symptoms to be suppressed. At Mentisara, we take a different perspective. We understand that psychological challenges—whether anxiety, mood fluctuations, or adjustmental issues—are meaningful signals of an individual&apos;s internal experience.
             </p>
-            <p className="text-slate-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed text-justify text-base sm:text-lg">
               Our person-centred framework respects your autonomy and lived experience. We walk alongside you as collaborative partners, offering psychological insights, cognitive tools, and non-judgmental support so you can reclaim emotional balance.
             </p>
 
@@ -47,7 +47,7 @@ export default function AboutPage() {
                 <ShieldCheck className="w-5 h-5 text-terracotta-600" />
                 <span>Private & Secure Online Environment</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-600">
+              <p className="text-xs sm:text-sm text-slate-600 text-justify leading-relaxed">
                 All therapy sessions are held via secure, encrypted video links. Your identity and personal history are protected under strict psychological ethics.
               </p>
             </div>
@@ -92,7 +92,7 @@ export default function AboutPage() {
                 1
               </div>
               <h3 className="font-serif text-xl font-medium text-forest-950">A Safe Sounding Board</h3>
-              <p className="text-sm text-slate-700">
+              <p className="text-sm text-slate-700 text-justify leading-relaxed">
                 Express your feelings freely without fear of judgment, criticism, or unsolicited advice.
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 2
               </div>
               <h3 className="font-serif text-xl font-medium text-forest-950">Practical Coping Tools</h3>
-              <p className="text-sm text-slate-700">
+              <p className="text-sm text-slate-700 text-justify leading-relaxed">
                 Acquire cognitive reframing techniques, distress tolerance methods, and somatic grounding skills.
               </p>
             </div>
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 3
               </div>
               <h3 className="font-serif text-xl font-medium text-forest-950">Self-Directed Pacing</h3>
-              <p className="text-sm text-slate-700">
+              <p className="text-sm text-slate-700 text-justify leading-relaxed">
                 You control the speed and focus of sessions. We adapt our clinical tools to what you need most.
               </p>
             </div>
@@ -127,25 +127,25 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center space-y-3">
-              <Heart className="w-8 h-8 text-terracotta-600 mx-auto" />
+            <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center sm:text-left space-y-3">
+              <Heart className="w-8 h-8 text-terracotta-600 sm:mx-0 mx-auto" />
               <h3 className="font-serif text-lg text-forest-950 font-medium">Person-Centred</h3>
-              <p className="text-xs text-slate-600">Tailoring psychological support around your values, culture, and goals.</p>
+              <p className="text-xs text-slate-600 text-justify leading-relaxed">Tailoring psychological support around your values, culture, and goals.</p>
             </div>
-            <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center space-y-3">
-              <UserCheck className="w-8 h-8 text-forest-700 mx-auto" />
+            <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center sm:text-left space-y-3">
+              <UserCheck className="w-8 h-8 text-forest-700 sm:mx-0 mx-auto" />
               <h3 className="font-serif text-lg text-forest-950 font-medium">Scientific Rigor</h3>
-              <p className="text-xs text-slate-600">Grounded in validated CBT and clinical emotional regulation practices.</p>
+              <p className="text-xs text-slate-600 text-justify leading-relaxed">Grounded in validated CBT and clinical emotional regulation practices.</p>
             </div>
-            <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center space-y-3">
-              <Scale className="w-8 h-8 text-terracotta-600 mx-auto" />
+            <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center sm:text-left space-y-3">
+              <Scale className="w-8 h-8 text-terracotta-600 sm:mx-0 mx-auto" />
               <h3 className="font-serif text-lg text-forest-950 font-medium">Ethical Practice</h3>
-              <p className="text-xs text-slate-600">Honoring strict client privacy, discretion, and transparent communication.</p>
+              <p className="text-xs text-slate-600 text-justify leading-relaxed">Honoring strict client privacy, discretion, and transparent communication.</p>
             </div>
-            <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center space-y-3">
-              <Sparkles className="w-8 h-8 text-forest-700 mx-auto" />
+            <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center sm:text-left space-y-3">
+              <Sparkles className="w-8 h-8 text-forest-700 sm:mx-0 mx-auto" />
               <h3 className="font-serif text-lg text-forest-950 font-medium">Continuous Care</h3>
-              <p className="text-xs text-slate-600">Empowering long-term psychological resilience beyond session hours.</p>
+              <p className="text-xs text-slate-600 text-justify leading-relaxed">Empowering long-term psychological resilience beyond session hours.</p>
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function AboutPage() {
         {/* CTA */}
         <div className="bg-[#F1F6F3] border border-[#DEE7E1] rounded-3xl p-8 sm:p-12 text-forest-950 text-center space-y-6 shadow-soft-sm">
           <h2 className="text-3xl font-serif font-medium text-forest-950">Begin Your Consultation Process</h2>
-          <p className="text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="text-slate-600 max-w-xl mx-auto text-sm sm:text-base text-justify sm:text-center leading-relaxed">
             Take a confident step toward emotional resilience with Mentisara&apos;s structured online sessions.
           </p>
           <Link href="/book-appointment" className="inline-block pt-2">

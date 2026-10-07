@@ -40,7 +40,7 @@ export default function TermsAndConditionsPage() {
             <section className="space-y-3">
               <h2 className="text-xl font-serif text-forest-900 font-semibold">1. Scope of Services</h2>
               <p>
-                Mentisara provides structured, person-centred psychological support, cognitive behavioural therapy (CBT), and emotional resilience training via online video platforms. Submitting an application form does not constitute an automatic clinical relationship until intake confirmation is agreed upon.
+                Mentisara provides structured, person-centred psychological support and emotional resilience training via online video platforms. Submitting an application form does not constitute an automatic clinical relationship until intake confirmation is agreed upon.
               </p>
             </section>
 
