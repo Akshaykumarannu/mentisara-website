@@ -65,9 +65,9 @@ export default function ContactPage() {
           <h1 className="text-4xl sm:text-5xl font-serif text-forest-950 font-medium tracking-tight">
             We Are Here to Listen & Assist
           </h1>
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
+          {/* <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
             Have questions about our person-centred therapy approach or appointment process? Reach out to our intake team today.
-          </p>
+          </p> */}
         </div>
 
         {/* ── CRISIS DISCLAIMER BOX (REQUIREMENT 22) ── */}

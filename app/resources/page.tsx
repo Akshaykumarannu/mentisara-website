@@ -38,7 +38,7 @@ export default function ResourcesPage() {
             Resources for Psychological Well-Being
           </h1>
           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
-            Thoughtful clinical articles, self-awareness guides, and therapeutic perspectives curated by the Mentisara clinical team.
+            Thoughtful clinical articles, self-awareness guides, and therapeutic perspectives curated by the Mentisara team.
           </p>
         </div>
 

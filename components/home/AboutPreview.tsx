@@ -81,10 +81,7 @@ export function AboutPreview() {
             </div>
 
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal text-justify">
-              At Mentisara, we believe that emotional well-being begins when you feel truly heard and
-              understood. Rather than applying rigid templates or reductionist labels, our practice focuses
-              on understanding your distinct psychological makeup through a structured and person-centred
-              therapeutic approach.
+              At Mentisara, we believe meaningful care begins with seeing the whole person. Every individual has a unique inner world shaped by experiences, emotions, thoughts, relationships, and ways of coping. We take time to understand these within the context of your life, rather than defining you through a label or a single concern. Our structured, person-centred, and clinically informed approach allows therapy to be thoughtful, individualised, and meaningful.
             </p>
 
             <blockquote className="text-sm text-slate-700 leading-relaxed italic border-l-3 border-[#BD7854] pl-4 bg-white/90 py-3.5 rounded-r-2xl border border-l-0 border-[#E8DBCF] shadow-soft-sm text-justify">

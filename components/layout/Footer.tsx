@@ -7,24 +7,24 @@ import { BrandLogo } from "@/components/common/BrandLogo";
 
 export function Footer() {
   return (
-    <footer className="bg-[#ECE5DC] text-forest-950 pt-16 pb-16 md:pb-12 border-t border-[#D9D0C3]">
+    <footer className="bg-[#173C36] text-[#F7F5EF] pt-20 pb-16 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#D8CFC2]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-white/10">
 
-          {/* Brand Column */}
-          <div className="lg:col-span-4 space-y-5">
+          {/* Brand Column (4 cols) */}
+          <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="inline-block group" aria-label="Mentisara Home">
-              <BrandLogo size="md" variant="dark" showTagline={true} />
+              <BrandLogo size="md" variant="light" showTagline={true} />
             </Link>
-            <p className="text-sm text-slate-700 leading-relaxed font-normal max-w-[420px]">
-              Individualised support shaped around your unique<br className="hidden sm:inline" />{" "}
-              experiences, needs, and goals - delivered through a<br className="hidden sm:inline" />{" "}
-              secure, confidential, and supportive online space.
+            
+            <p className="text-sm text-[#F7F5EF]/80 leading-relaxed font-normal max-w-[400px]">
+              Individualised support shaped around your unique experiences, needs, and goals - delivered through a secure, confidential, and supportive online space.
             </p>
-            <div className="flex items-center gap-2 text-xs text-forest-950 font-medium">
-              <ShieldCheck className="w-4 h-4 text-[#BD7854]" />
+
+            <div className="flex items-center gap-2 text-xs text-[#F7F5EF]/85 font-medium">
+              <ShieldCheck className="w-4 h-4 text-[#A8B9A5]" />
               <span>Ethics-Guided & Compassionate Online Practice</span>
             </div>
 
@@ -35,7 +35,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Mentisara on Instagram"
-                className="flex items-center gap-2.5 text-slate-700 hover:text-forest-950 transition-colors text-xs font-medium bg-white/90 border border-[#D5CBBF] hover:border-pink-500/50 px-3 py-1.5 rounded-xl shadow-soft-sm"
+                className="flex items-center gap-2.5 text-[#F7F5EF]/85 hover:text-white transition-colors text-xs font-medium bg-white/5 border border-white/10 hover:border-white/30 px-3.5 py-2 rounded-xl backdrop-blur-sm"
               >
                 <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
                   <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Mentisara on YouTube"
-                className="flex items-center gap-2.5 text-slate-700 hover:text-forest-950 transition-colors text-xs font-medium bg-white/90 border border-[#D5CBBF] hover:border-red-500/50 px-3 py-1.5 rounded-xl shadow-soft-sm"
+                className="flex items-center gap-2.5 text-[#F7F5EF]/85 hover:text-white transition-colors text-xs font-medium bg-white/5 border border-white/10 hover:border-white/30 px-3.5 py-2 rounded-xl backdrop-blur-sm"
               >
                 <div className="w-6 h-6 rounded-lg bg-red-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
                   <svg className="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24">
@@ -62,13 +62,13 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-serif text-xs font-bold uppercase tracking-wider text-forest-950">Navigation</h4>
-            <ul className="space-y-2.5 text-sm">
+            <h4 className="font-serif text-sm font-semibold uppercase tracking-wider text-[#C88768]">Navigation</h4>
+            <ul className="space-y-3 text-sm">
               {siteConfig.nav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-slate-700 hover:text-forest-950 transition-colors font-medium">
+                  <Link href={item.href} className="text-[#F7F5EF]/75 hover:text-white transition-colors font-normal">
                     {item.label}
                   </Link>
                 </li>
@@ -76,10 +76,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-serif text-xs font-bold uppercase tracking-wider text-forest-950">Services</h4>
-            <ul className="space-y-2.5 text-sm">
+            <h4 className="font-serif text-sm font-semibold uppercase tracking-wider text-[#C88768]">Services</h4>
+            <ul className="space-y-3 text-sm">
               {[
                 { label: "Individual Psychotherapy", href: "/services/individual-psychotherapy" },
                 { label: "CBT Sessions", href: "/services/cognitive-behavioural-therapy" },
@@ -89,7 +89,7 @@ export function Footer() {
                 { label: "Emotional Resilience", href: "/services/emotional-regulation-resilience" },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-slate-700 hover:text-forest-950 transition-colors font-medium">
+                  <Link href={item.href} className="text-[#F7F5EF]/75 hover:text-white transition-colors font-normal">
                     {item.label}
                   </Link>
                 </li>
@@ -97,26 +97,26 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact Details */}
+          {/* Contact Details (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-serif text-xs font-bold uppercase tracking-wider text-forest-950">Contact</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="font-serif text-sm font-semibold uppercase tracking-wider text-[#C88768]">Contact</h4>
+            <ul className="space-y-3.5 text-sm">
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-2.5 text-slate-700 hover:text-forest-950 transition-colors group"
+                  className="flex items-center gap-2.5 text-[#F7F5EF]/75 hover:text-white transition-colors group"
                 >
-                  <Mail className="w-4 h-4 text-[#BD7854] shrink-0" />
-                  <span className="whitespace-nowrap text-xs sm:text-sm font-medium">{siteConfig.contact.email}</span>
+                  <Mail className="w-4 h-4 text-[#A8B9A5] shrink-0" />
+                  <span className="text-xs sm:text-sm font-normal">{siteConfig.contact.email}</span>
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${siteConfig.contact.phoneRaw}`}
-                  className="flex items-center gap-2.5 text-slate-700 hover:text-forest-950 transition-colors"
+                  className="flex items-center gap-2.5 text-[#F7F5EF]/75 hover:text-white transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-[#BD7854] shrink-0" />
-                  {siteConfig.contact.phoneDisplay}
+                  <Phone className="w-4 h-4 text-[#A8B9A5] shrink-0" />
+                  <span className="font-normal">{siteConfig.contact.phoneDisplay}</span>
                 </a>
               </li>
               <li>
@@ -124,7 +124,7 @@ export function Footer() {
                   href={buildWhatsAppUrl("Hello Mentisara, I would like to book an appointment.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-slate-700 hover:text-forest-950 transition-colors"
+                  className="flex items-center gap-2.5 text-[#F7F5EF]/75 hover:text-white transition-colors"
                 >
                   <span className="w-4 h-4 flex items-center justify-center flex-shrink-0">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#25D366]" />
@@ -132,8 +132,8 @@ export function Footer() {
                   <span>WhatsApp Us</span>
                 </a>
               </li>
-              <li className="flex items-start gap-2.5 text-slate-600 text-xs font-medium">
-                <MapPin className="w-3.5 h-3.5 text-[#BD7854] shrink-0 mt-0.5" />
+              <li className="flex items-start gap-2.5 text-[#F7F5EF]/60 text-xs">
+                <MapPin className="w-3.5 h-3.5 text-[#A8B9A5] shrink-0 mt-0.5" />
                 <span>Kerala (Inside & Outside) Online Care</span>
               </li>
             </ul>
@@ -142,15 +142,15 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 relative flex flex-col md:flex-row items-center justify-between text-xs text-slate-600 gap-4 font-medium">
+        <div className="pt-8 relative flex flex-col md:flex-row items-center justify-between text-xs text-[#F7F5EF]/60 gap-4 font-normal">
           <p>© {new Date().getFullYear()} Mentisara. All rights reserved.</p>
-          
+
           {/* Centered links with complete clearance from bottom-right floating WhatsApp button */}
           <div className="flex items-center gap-6 sm:gap-8 md:absolute md:left-1/2 md:-translate-x-1/2">
-            <Link href="/privacy-policy" className="hover:text-forest-950 transition-colors underline-offset-4 hover:underline">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors underline-offset-4 hover:underline">
               Privacy Policy
             </Link>
-            <Link href="/terms-and-conditions" className="hover:text-forest-950 transition-colors underline-offset-4 hover:underline">
+            <Link href="/terms-and-conditions" className="hover:text-white transition-colors underline-offset-4 hover:underline">
               Terms & Conditions
             </Link>
           </div>

@@ -54,9 +54,9 @@ export default function ServicesPage() {
 
         {/* Page Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <Badge variant="primary">Our Clinical Services</Badge>
+          <Badge variant="primary">Our Services</Badge>
           <h1 className="text-4xl sm:text-5xl font-serif text-forest-950 font-medium tracking-tight">
-            Tailored Psychological Support
+           Individualised Therapeutic Care
           </h1>
           <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
             Grounding care in clinical expertise and person-centred respect. We provide focused, supportive online therapy designed to meet your specific emotional needs.

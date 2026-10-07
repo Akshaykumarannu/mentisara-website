@@ -36,11 +36,14 @@ export default function AboutPage() {
               The Mentisara Approach
             </h2>
             <p className="text-slate-700 leading-relaxed text-justify text-base sm:text-lg">
-              In a fast-paced world, emotional distress is often reduced to symptoms to be suppressed. At Mentisara, we take a different perspective. We understand that psychological challenges—whether anxiety, mood fluctuations, or adjustmental issues—are meaningful signals of an individual&apos;s internal experience.
+              In a world that often asks us to move faster, emotional well-being deserves space, understanding, and care. At Mentisara, we see psychological concerns not simply as symptoms to be managed, but as experiences that deserve to be understood within the context of your thoughts, emotions, relationships, and life circumstances.
+Our approach is person-centred, collaborative, and evidence-informed. We respect your individuality, autonomy, and lived experience while creating a space where you can explore what you are going through at your own pace.
+Through personalised psychological support, clinically informed interventions, and practical therapeutic strategies, we work alongside you to develop greater self-understanding, strengthen coping, and navigate life's challenges with greater clarity and resilience.
             </p>
-            <p className="text-slate-700 leading-relaxed text-justify text-base sm:text-lg">
-              Our person-centred framework respects your autonomy and lived experience. We walk alongside you as collaborative partners, offering psychological insights, cognitive tools, and non-judgmental support so you can reclaim emotional balance.
-            </p>
+            {/* <p className="text-slate-700 leading-relaxed text-justify text-base sm:text-lg">
+             Private & Supportive Online Experience
+Your sessions take place in a confidential and professionally maintained online setting, designed to provide a comfortable space for meaningful therapeutic conversations. Your privacy, dignity, and autonomy remain central throughout the counselling process.
+            </p> */}
 
             <div className="p-6 bg-white rounded-3xl border border-sand-300 shadow-soft-sm space-y-3">
               <div className="flex items-center gap-2 text-forest-900 font-semibold">
@@ -74,7 +77,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* SECTION 3: What Clients Can Expect */}
+        {/* SECTION 3: What Clients Can Expect
         <div className="bg-sand-100/70 rounded-4xl p-8 sm:p-12 border border-sand-300 mb-20">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
             <Badge variant="secondary">Client Experience</Badge>
@@ -117,7 +120,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* SECTION 4: Core Pillars */}
         <div className="space-y-12 mb-20">
@@ -129,23 +132,24 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center sm:text-left space-y-3">
               <Heart className="w-8 h-8 text-terracotta-600 sm:mx-0 mx-auto" />
-              <h3 className="font-serif text-lg text-forest-950 font-medium">Person-Centred</h3>
-              <p className="text-xs text-slate-600 text-justify leading-relaxed">Tailoring psychological support around your values, culture, and goals.</p>
+              <h3 className="font-serif text-lg text-forest-950 font-medium">Person-Centred Care</h3>
+              <p className="text-xs text-slate-600 text-justify leading-relaxed">Respecting each person's individuality, autonomy, values, needs, and lived experience..</p>
             </div>
             <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center sm:text-left space-y-3">
               <UserCheck className="w-8 h-8 text-forest-700 sm:mx-0 mx-auto" />
-              <h3 className="font-serif text-lg text-forest-950 font-medium">Scientific Rigor</h3>
-              <p className="text-xs text-slate-600 text-justify leading-relaxed">Grounded in validated CBT and clinical emotional regulation practices.</p>
+              <h3 className="font-serif text-lg text-forest-950 font-medium"> Evidence-Informed Practice</h3>
+              <p className="text-xs text-slate-600 text-justify leading-relaxed">Using established psychological knowledge and appropriate therapeutic approaches, while maintaining professional competence and current knowledge..</p>
             </div>
             <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center sm:text-left space-y-3">
               <Scale className="w-8 h-8 text-terracotta-600 sm:mx-0 mx-auto" />
-              <h3 className="font-serif text-lg text-forest-950 font-medium">Ethical Practice</h3>
-              <p className="text-xs text-slate-600 text-justify leading-relaxed">Honoring strict client privacy, discretion, and transparent communication.</p>
+              <h3 className="font-serif text-lg text-forest-950 font-medium"> Confidentiality & Professional Integrity
+</h3>
+              <p className="text-xs text-slate-600 text-justify leading-relaxed">Protecting privacy, maintaining appropriate boundaries, obtaining informed consent, and practising honestly and responsibly.</p>
             </div>
             <div className="bg-white p-6 rounded-3xl border border-sand-300 text-center sm:text-left space-y-3">
               <Sparkles className="w-8 h-8 text-forest-700 sm:mx-0 mx-auto" />
-              <h3 className="font-serif text-lg text-forest-950 font-medium">Continuous Care</h3>
-              <p className="text-xs text-slate-600 text-justify leading-relaxed">Empowering long-term psychological resilience beyond session hours.</p>
+              <h3 className="font-serif text-lg text-forest-950 font-medium">Client Wellbeing & Responsible Care</h3>
+              <p className="text-xs text-slate-600 text-justify leading-relaxed">Prioritising the client's wellbeing, minimising harm, recognising professional limits, and providing appropriate referral or collaboration when additional support is needed.</p>
             </div>
           </div>
         </div>

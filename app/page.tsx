@@ -39,12 +39,13 @@ export default function HomePage() {
 
       {/* Check list / 1-Minute Emotional Check-In */}
       <SelfAssessmentQuiz />
+      {/* Review & Rating / Client Experiences */}
+      <TestimonialSection />
 
       {/* Ready to Take First Step / Appointment CTA */}
       <AppointmentCTA />
 
-      {/* Review & Rating / Client Experiences */}
-      <TestimonialSection />
+      
     </>
   );
 }

@@ -55,9 +55,9 @@ export function ApproachSection() {
             How Your Care Journey{" "}
             <span className="italic font-normal text-[#BD7854]">Unfolds</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto font-normal">
+          {/* <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto font-normal">
             Every step from initial contact to ongoing therapy is transparent, welcoming, and held in a secure space.
-          </p>
+          </p> */}
           <div className="section-divider mt-2" />
         </div>
 

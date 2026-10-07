@@ -65,9 +65,9 @@ export function ValuesSection() {
             The Principles That{" "}
             <span className="italic font-normal text-[#BD7854]">Guide Our Care</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
+          {/* <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
             Every interaction at Mentisara is grounded in evidence-based practice, ethical standards, and genuine human empathy.
-          </p>
+          </p> */}
           <div className="section-divider mt-2" />
         </div>
 

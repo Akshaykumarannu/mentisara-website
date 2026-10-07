@@ -78,9 +78,9 @@ export function ServicesGrid() {
               Therapy Modalities
             </span>
           </h2>
-          <p className="text-base text-slate-700 leading-relaxed max-w-xl mx-auto">
+          {/* <p className="text-base text-slate-700 leading-relaxed max-w-xl mx-auto">
             Structured, individualized online psychological care designed to support your wellbeing and growth.
-          </p>
+          </p> */}
           <div className="section-divider mt-2" />
         </div>
 

@@ -103,9 +103,9 @@ export function SpecializedCareSection() {
             Areas We{" "}
             <span className="italic font-normal text-[#BD7854]">Support</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto font-normal">
+          {/* <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto font-normal">
             Individualised care designed around your needs, goals and wellbeing.
-          </p>
+          </p> */}
           <div className="section-divider mt-2" />
         </div>
 
