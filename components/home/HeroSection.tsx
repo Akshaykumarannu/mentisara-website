@@ -52,7 +52,7 @@ export function HeroSection() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-600" />
               </span>
               <span className="text-xs font-semibold text-forest-950 tracking-wide">
-                Now accepting clients · Kerala & Worldwide Online
+                Now accepting clients · Kerala (Inside & Outside) Online
               </span>
             </div>
 
@@ -65,8 +65,7 @@ export function HeroSection() {
                 </span>
               </h1>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-xl font-normal">
-                Compassionate, person-centred psychological care designed around your unique needs,
-                experiences, and goals — delivered through secure online sessions.
+                No two journeys are alike. Every individual carries a unique world of experiences, emotions, thoughts, and perspectives that shape who they are. We are here for yours, offering a safe and confidential space through secure online sessions.
               </p>
             </div>
 

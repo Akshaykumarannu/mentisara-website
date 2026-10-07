@@ -22,7 +22,7 @@ export function OnlineVsTraditional() {
     {
       feature: "Geographical Reach",
       traditional: "Restricted to physical location in your city",
-      mentisara: "Accessible across Kerala, India & globally for expats",
+      mentisara: "Accessible across Kerala (inside and outside) online",
     },
     {
       feature: "Direct Communication",

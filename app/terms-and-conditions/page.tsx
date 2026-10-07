@@ -65,7 +65,7 @@ export default function TermsAndConditionsPage() {
             <section className="space-y-3">
               <h2 className="text-xl font-serif text-forest-900 font-semibold">4. Payments & Refunds</h2>
               <p>
-                Session fees and workshop payments are processed via verified online gateways (Razorpay). Details regarding refunds for workshops or prepaid series are provided in writing prior to billing.
+                Session fees and workshop payments are processed via verified online gateways. Refunds are available only when the therapist is unavailable at the scheduled appointment time. If a technical issue occurs during the session, the session will be rescheduled, and no additional payment will be required.
               </p>
             </section>
 

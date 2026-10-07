@@ -6,7 +6,7 @@ const trustItems = [
   { icon: <Sparkles className="w-4 h-4" />, text: "Empathetic & Non-Judgmental" },
   { icon: <Video className="w-4 h-4" />, text: "Secure Video Sessions" },
   { icon: <Heart className="w-4 h-4" />, text: "Person-Centred Care" },
-  { icon: <Globe className="w-4 h-4" />, text: "Kerala & Worldwide" },
+  { icon: <Globe className="w-4 h-4" />, text: "Kerala (Inside & Outside)" },
 ];
 
 export function TrustStrip() {

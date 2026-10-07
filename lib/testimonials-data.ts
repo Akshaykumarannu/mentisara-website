@@ -4,33 +4,33 @@ import { TestimonialItem } from "@/types";
 export const testimonialsData: TestimonialItem[] = [
   {
     id: "test-1",
-    clientName: "Client Experience",
+    clientName: "Anonymous Client",
     initials: "A.R.",
     location: "Kochi, Kerala",
-    serviceCategory: "Individual Psychotherapy",
-    content: "The person-centred approach at Mentisara helped me feel genuinely heard for the first time. Having online sessions gave me the privacy and comfort to work through my anxiety at my own pace.",
+    serviceCategory: "",
+    content: "I finally feel heard and understood. Mentisara provided the safe and non-judgmental space I needed to navigate my anxiety and rebuild confidence at my own pace.",
     rating: 5,
     date: "August 2026",
     verified: true
   },
   {
     id: "test-2",
-    clientName: "Client Experience",
+    clientName: "Anonymous Client",
     initials: "M.K.",
-    location: "Bengaluru, India",
-    serviceCategory: "Cognitive Behavioural Therapy",
-    content: "CBT gave me actionable structure. I learned to spot negative thought spirals before they paralyzed my work and daily decisions. Highly professional and respectful environment.",
+    location: "Outside Kerala (Online)",
+    serviceCategory: "",
+    content: "Mentisara gave me genuine clarity and practical grounding. I learned to navigate difficult emotions before they overwhelmed my daily life. Extremely thoughtful and professional.",
     rating: 5,
     date: "July 2026",
     verified: true
   },
   {
     id: "test-3",
-    clientName: "Client Experience",
+    clientName: "Anonymous Client",
     initials: "S.N.",
     location: "Trivandrum, Kerala",
-    serviceCategory: "Emotional Regulation",
-    content: "The grounding techniques and resilience framework transformed how I respond to workplace stress. The online appointment process was straightforward and prompt.",
+    serviceCategory: "",
+    content: "The reflective sessions and empathetic presence transformed how I respond to persistent stress. The online consultations are private, seamless, and deeply reassuring.",
     rating: 5,
     date: "September 2026",
     verified: true

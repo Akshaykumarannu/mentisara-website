@@ -29,8 +29,8 @@ const steps = [
   {
     num: "04",
     icon: <Sparkles className="w-5 h-5 text-[#BD7854]" />,
-    title: "Growth & Resilience",
-    desc: "Acquire sustainable emotional regulation skills, psychological insights, and long-term self-efficacy at your own pace.",
+    title: "Resilience, Closure & Continued Support",
+    desc: "Reflecting on progress, consolidating therapeutic gains, strengthening resilience and coping skills, and supporting a confident transition toward continued well-being with follow-up care when needed.",
     accent: "bg-[#F7E2D4]",
     badgeText: "Step Four",
   },

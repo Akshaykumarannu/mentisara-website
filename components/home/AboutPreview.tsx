@@ -5,26 +5,26 @@ import { ArrowRight, BookOpen, Stethoscope, HeartHandshake, Award } from "lucide
 const credentialsAndApproach = [
   {
     icon: <BookOpen className="w-5 h-5 text-forest-800" />,
-    title: "Tailored & Structured Approach",
-    desc: "Grounded in validated clinical psychological frameworks and thoughtful therapeutic methods.",
-    tagBg: "bg-[#D8EADB]",
-  },
-  {
-    icon: <Award className="w-5 h-5 text-[#BD7854]" />,
-    title: "Clinical Experience",
-    desc: "Guided by dedicated clinical training, professional ethics, and thoughtful practice.",
-    tagBg: "bg-[#F7E2D4]",
-  },
-  {
-    icon: <Stethoscope className="w-5 h-5 text-forest-800" />,
-    title: "Psychiatric Care Coordination",
-    desc: "Seamless collaborative consultation and doctor coordination whenever medication or medical input is indicated.",
+    title: "Tailored and Structured Approach",
+    desc: "Guided by established psychological frameworks and individualised therapeutic methods.",
     tagBg: "bg-[#D8EADB]",
   },
   {
     icon: <HeartHandshake className="w-5 h-5 text-[#BD7854]" />,
-    title: "Person-Centred",
-    desc: "Honoring your autonomy, lived experience, and personal pace without rigid labels or pressure.",
+    title: "Person-Centred Care",
+    desc: "Respecting your individuality, lived experiences, autonomy, and personal pace throughout the therapeutic process.",
+    tagBg: "bg-[#F7E2D4]",
+  },
+  {
+    icon: <Award className="w-5 h-5 text-forest-800" />,
+    title: "Clinical Experience",
+    desc: "Grounded in professional training, practical experience, and responsible mental health practice.",
+    tagBg: "bg-[#D8EADB]",
+  },
+  {
+    icon: <Stethoscope className="w-5 h-5 text-[#BD7854]" />,
+    title: "Psychiatric Care Coordination",
+    desc: "Facilitating psychiatric consultation and coordinated care when medication or further medical assessment is indicated.",
     tagBg: "bg-[#F7E2D4]",
   },
 ];

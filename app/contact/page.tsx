@@ -141,7 +141,7 @@ export default function ContactPage() {
             {/* Location Notice */}
             <div className="bg-sand-100/70 rounded-3xl border border-sand-300 p-6 text-center space-y-2">
               <MapPin className="w-6 h-6 text-forest-800 mx-auto" />
-              <h4 className="font-serif text-lg font-medium text-forest-950">Kerala & Worldwide Online</h4>
+              <h4 className="font-serif text-lg font-medium text-forest-950">Kerala (Inside & Outside) Online</h4>
               <p className="text-xs text-slate-600 max-w-xs mx-auto leading-relaxed">
                 All therapy consultations are delivered securely through private online video sessions.
               </p>

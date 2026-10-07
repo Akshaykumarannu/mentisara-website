@@ -430,7 +430,7 @@ function buildClientConfirmationHtml(p: {
 
         <!-- Footer -->
         <tr><td style="background:#ede8e1;padding:16px;text-align:center;font-size:11px;color:#777;">
-          Mentisara Practice · Kerala & Worldwide Online Care
+          Mentisara Practice · Kerala (Inside & Outside) Online Care
         </td></tr>
 
       </table>

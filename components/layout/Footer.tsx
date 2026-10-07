@@ -7,20 +7,21 @@ import { BrandLogo } from "@/components/common/BrandLogo";
 
 export function Footer() {
   return (
-    <footer className="bg-[#ECE5DC] text-forest-950 pt-16 pb-12 border-t border-[#D9D0C3]">
+    <footer className="bg-[#ECE5DC] text-forest-950 pt-16 pb-16 md:pb-12 border-t border-[#D9D0C3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-[#D8CFC2]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#D8CFC2]">
 
           {/* Brand Column */}
-          <div className="lg:col-span-2 space-y-5">
+          <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-block group" aria-label="Mentisara Home">
               <BrandLogo size="md" variant="dark" showTagline={true} />
             </Link>
-            <p className="text-sm text-slate-700 leading-relaxed max-w-sm font-normal">
-              Thoughtful, person-centred online psychological care designed around your unique needs,
-              delivered in a safe and compassionate space.
+            <p className="text-sm text-slate-700 leading-relaxed font-normal max-w-[420px]">
+              Individualised support shaped around your unique<br className="hidden sm:inline" />{" "}
+              experiences, needs, and goals - delivered through a<br className="hidden sm:inline" />{" "}
+              secure, confidential, and supportive online space.
             </p>
             <div className="flex items-center gap-2 text-xs text-forest-950 font-medium">
               <ShieldCheck className="w-4 h-4 text-[#BD7854]" />
@@ -62,7 +63,7 @@ export function Footer() {
           </div>
 
           {/* Navigation */}
-          <div className="space-y-4">
+          <div className="lg:col-span-2 space-y-4">
             <h4 className="font-serif text-xs font-bold uppercase tracking-wider text-forest-950">Navigation</h4>
             <ul className="space-y-2.5 text-sm">
               {siteConfig.nav.map((item) => (
@@ -76,7 +77,7 @@ export function Footer() {
           </div>
 
           {/* Services */}
-          <div className="space-y-4">
+          <div className="lg:col-span-3 space-y-4">
             <h4 className="font-serif text-xs font-bold uppercase tracking-wider text-forest-950">Services</h4>
             <ul className="space-y-2.5 text-sm">
               {[
@@ -97,16 +98,16 @@ export function Footer() {
           </div>
 
           {/* Contact Details */}
-          <div className="space-y-4">
+          <div className="lg:col-span-3 space-y-4">
             <h4 className="font-serif text-xs font-bold uppercase tracking-wider text-forest-950">Contact</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-start gap-2.5 text-slate-700 hover:text-forest-950 transition-colors"
+                  className="flex items-center gap-2.5 text-slate-700 hover:text-forest-950 transition-colors group"
                 >
-                  <Mail className="w-4 h-4 text-[#BD7854] shrink-0 mt-0.5" />
-                  <span className="break-all">{siteConfig.contact.email}</span>
+                  <Mail className="w-4 h-4 text-[#BD7854] shrink-0" />
+                  <span className="whitespace-nowrap text-xs sm:text-sm font-medium">{siteConfig.contact.email}</span>
                 </a>
               </li>
               <li>
@@ -133,7 +134,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2.5 text-slate-600 text-xs font-medium">
                 <MapPin className="w-3.5 h-3.5 text-[#BD7854] shrink-0 mt-0.5" />
-                <span>Kerala, India · Worldwide Online Care</span>
+                <span>Kerala (Inside & Outside) Online Care</span>
               </li>
             </ul>
           </div>
@@ -141,11 +142,17 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col md:flex-row items-center justify-between text-xs text-slate-600 gap-4 font-medium">
+        <div className="pt-6 relative flex flex-col md:flex-row items-center justify-between text-xs text-slate-600 gap-4 font-medium">
           <p>© {new Date().getFullYear()} Mentisara. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-forest-950 transition-colors">Privacy Policy</Link>
-            <Link href="/terms-and-conditions" className="hover:text-forest-950 transition-colors">Terms & Conditions</Link>
+          
+          {/* Centered links with complete clearance from bottom-right floating WhatsApp button */}
+          <div className="flex items-center gap-6 sm:gap-8 md:absolute md:left-1/2 md:-translate-x-1/2">
+            <Link href="/privacy-policy" className="hover:text-forest-950 transition-colors underline-offset-4 hover:underline">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-and-conditions" className="hover:text-forest-950 transition-colors underline-offset-4 hover:underline">
+              Terms & Conditions
+            </Link>
           </div>
         </div>
 

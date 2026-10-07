@@ -12,7 +12,7 @@ export const siteConfig = {
     phoneRaw: "919188159149",
     whatsAppNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919188159149",
     whatsAppDefaultMessage: "Hello Mentisara, I would like to inquire about your therapy services and book a consultation.",
-    location: "Kerala, India (Serving Clients Worldwide Online)",
+    location: "Kerala, India (Serving Clients Inside & Outside Kerala Online)",
     officeHours: "Monday – Saturday: 9:00 AM – 7:00 PM IST (By Appointment)",
   },
 
