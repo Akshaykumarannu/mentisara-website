@@ -51,7 +51,7 @@ export function AboutPreview() {
               </div>
 
               {/* Bottom Credential Bar */}
-              <div className="mt-3 bg-[#FAF5EE] rounded-2xl p-3.5 border border-[#E8DBCF] flex items-center gap-3">
+              {/* <div className="mt-3 bg-[#FAF5EE] rounded-2xl p-3.5 border border-[#E8DBCF] flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-[#D6E7DC] text-forest-900 border border-[#BED7C7] flex items-center justify-center font-serif font-bold text-sm flex-shrink-0">
                   M
                 </div>
@@ -59,7 +59,7 @@ export function AboutPreview() {
                   <p className="text-xs font-serif font-semibold text-forest-950">Evidence-Based Psychotherapy</p>
                   <p className="text-[11px] text-slate-600">A collaborative space to understand you beyond the surface</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

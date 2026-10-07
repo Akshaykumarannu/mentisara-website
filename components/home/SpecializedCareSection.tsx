@@ -34,17 +34,24 @@ const careTopics: CareTopic[] = [
     icon: <HeartHandshake className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
-  {
-    title: "Adjustmental Issues",
-    desc: "Not every change is easy to adapt to. When life no longer feels familiar, therapy can offer space to understand, adjust, and find your footing again.",
-    icon: <GitBranch className="w-5 h-5 text-[#BD7854]" />,
-    iconBg: "bg-[#F7E2D4]",
-  },
+  
   {
     title: "Depression",
     desc: "Sometimes, it is not that you have stopped caring—it is that you have been carrying too much for too long. Therapy can help you reconnect with yourself, gradually and without judgment.",
     icon: <CloudRain className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
+  },
+  {
+    title: "Anxiety",
+    desc: "When your mind is constantly preparing for what might go wrong, even the present can become difficult to experience. Therapy can help you understand the cycle and regain a sense of steadiness.",
+    icon: <Sparkles className="w-5 h-5 text-forest-800" />,
+    iconBg: "bg-[#D4E8DC]",
+  },
+  {
+    title: "Adjustmental Issues",
+    desc: "Not every change is easy to adapt to. When life no longer feels familiar, therapy can offer space to understand, adjust, and find your footing again.",
+    icon: <GitBranch className="w-5 h-5 text-[#BD7854]" />,
+    iconBg: "bg-[#F7E2D4]",
   },
   {
     title: "Trauma",
@@ -70,12 +77,7 @@ const careTopics: CareTopic[] = [
     icon: <Feather className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
   },
-  {
-    title: "Anxiety",
-    desc: "When your mind is constantly preparing for what might go wrong, even the present can become difficult to experience. Therapy can help you understand the cycle and regain a sense of steadiness.",
-    icon: <Sparkles className="w-5 h-5 text-forest-800" />,
-    iconBg: "bg-[#D4E8DC]",
-  },
+ 
   {
     title: "Burnout",
     desc: "When constantly coping becomes a way of life, exhaustion can begin to feel normal. Therapy can help you recognise the cost, restore yourself, and create healthier ways of living.",

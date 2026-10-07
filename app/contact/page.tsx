@@ -61,7 +61,7 @@ export default function ContactPage() {
 
         {/* Page Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10">
-          <Badge variant="primary">Get in Touch</Badge>
+          {/* <Badge variant="primary">Get in Touch</Badge> */}
           <h1 className="text-4xl sm:text-5xl font-serif text-forest-950 font-medium tracking-tight">
             We Are Here to Listen & Assist
           </h1>

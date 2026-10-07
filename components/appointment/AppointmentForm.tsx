@@ -19,6 +19,14 @@ const LANGUAGE_OPTIONS = [
   { label: "Other", value: "Other" },
 ];
 
+const AGE_OPTIONS = [
+  { label: "Select Age", value: "" },
+  ...Array.from({ length: 46 }, (_, i) => {
+    const ageVal = String(i + 15);
+    return { label: `${ageVal} years`, value: ageVal };
+  }),
+];
+
 export function AppointmentForm({ preselectedServiceId }: { preselectedServiceId?: string }) {
   const defaultService = preselectedServiceId || servicesData[0].id;
 
@@ -104,13 +112,13 @@ export function AppointmentForm({ preselectedServiceId }: { preselectedServiceId
       errs.phone = "Please enter a valid phone number (min 8 digits).";
     }
 
-    // MANDATORY AGE VALIDATION (Requirement 18)
+    // MANDATORY AGE VALIDATION (15 to 60)
     if (!formData.age.trim()) {
-      errs.age = "Age is required.";
+      errs.age = "Please select your age (between 15 and 60).";
     } else {
       const ageNum = parseInt(formData.age.trim(), 10);
-      if (isNaN(ageNum) || ageNum < 10 || ageNum > 120) {
-        errs.age = "Please enter a valid age (e.g. 18 - 99).";
+      if (isNaN(ageNum) || ageNum < 15 || ageNum > 60) {
+        errs.age = "Age must be between 15 and 60.";
       }
     }
 
@@ -308,16 +316,14 @@ export function AppointmentForm({ preselectedServiceId }: { preselectedServiceId
               helperText="We will send session confirmation details here."
             />
           </div>
-          {/* MANDATORY AGE FIELD (Requirement 18) */}
-          <Input
-            label="Age *"
-            type="number"
-            placeholder="28"
+          {/* MANDATORY AGE SELECT (15 to 60) */}
+          <Select
+            label="Age"
+            options={AGE_OPTIONS}
             required
             value={formData.age}
             onChange={(e) => setFormData({ ...formData, age: e.target.value })}
             error={errors.age}
-            helperText="Required for intake assessment."
           />
         </div>
 

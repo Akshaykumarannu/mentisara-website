@@ -28,10 +28,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Mandatory Age Validation (Requirement 18 & 21)
-    if (!age || isNaN(parseInt(age, 10)) || parseInt(age, 10) < 10 || parseInt(age, 10) > 120) {
+    // Mandatory Age Validation (between 15 and 60)
+    if (!age || isNaN(parseInt(age, 10)) || parseInt(age, 10) < 15 || parseInt(age, 10) > 60) {
       return NextResponse.json<APIResponse>(
-        { success: false, message: "Please provide a valid age between 10 and 120." },
+        { success: false, message: "Please provide a valid age between 15 and 60." },
         { status: 400 }
       );
     }

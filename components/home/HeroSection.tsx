@@ -53,11 +53,11 @@ export function HeroSection() {
               }`}
             >
               {/* Eyebrow Pill (Vellura style) */}
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-xs font-semibold uppercase tracking-wider text-white shadow-soft-sm">
+              {/* <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-xs font-semibold uppercase tracking-wider text-white shadow-soft-sm">
                 <Heart className="w-3.5 h-3.5 text-[#C88768] fill-[#C88768]" />
                 <span>Now Accepting Clients · Online Therapy</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse ml-1" />
-              </div>
+              </div> */}
 
               {/* Main Headline (Mindora / Vellura style: large, calm, authoritative) */}
               <div className="space-y-4">
@@ -98,7 +98,7 @@ export function HeroSection() {
               </div>
 
               {/* Social Proof & Trust Strip (Vellura style) */}
-              <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-white/15 text-xs text-white/80 font-medium">
+              {/* <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-white/15 text-xs text-white/80 font-medium">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-[#C88768]" />
                   <span>Safe & Ethical Space</span>
@@ -113,7 +113,7 @@ export function HeroSection() {
                   <Sparkles className="w-4 h-4 text-[#C88768]" />
                   <span>Thoughtful & Tailored</span>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* RIGHT COLUMN: Floating Translucent Glassmorphic Card (Mindora style) */}

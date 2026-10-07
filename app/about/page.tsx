@@ -64,7 +64,7 @@ Your sessions take place in a confidential and professionally maintained online 
                 className="w-full h-[450px] object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-forest-950/40 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border border-sand-300 shadow-soft-sm flex items-center gap-3">
+              {/* <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border border-sand-300 shadow-soft-sm flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-forest-100 text-forest-900 border border-forest-200 flex items-center justify-center font-serif font-bold text-sm flex-shrink-0">
                   M
                 </div>
@@ -72,7 +72,7 @@ Your sessions take place in a confidential and professionally maintained online 
                   <p className="text-xs font-serif font-semibold text-forest-950">Person-Centred & Mindfully Guided</p>
                   <p className="text-[11px] text-slate-600">Private clinical counseling and psychotherapy</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

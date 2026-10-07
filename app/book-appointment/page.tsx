@@ -27,9 +27,9 @@ export default function BookAppointmentPage({
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-forest-950 font-medium tracking-tight">
             Schedule Your Therapy Intake
           </h1>
-          <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed">
+          {/* <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed">
             Please fill out your consultation request below. All information submitted is protected under strict client privacy and data protection standards.
-          </p>
+          </p> */}
         </div>
 
         {/* Form Container */}

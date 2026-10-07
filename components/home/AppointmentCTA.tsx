@@ -34,13 +34,13 @@ export function AppointmentCTA() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-9 relative z-10">
 
         {/* Top Reassurance Badge */}
-        <div className="inline-flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full text-xs font-semibold text-forest-950 border border-[#BED7C6] shadow-soft-sm">
+        {/* <div className="inline-flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full text-xs font-semibold text-forest-950 border border-[#BED7C6] shadow-soft-sm">
           <span className="flex h-2 w-2 relative">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
           </span>
           Accepting New Clients · Online Sessions Available Now
-        </div>
+        </div> */}
 
         {/* Heading with Display Serif */}
         <div className="space-y-4">
