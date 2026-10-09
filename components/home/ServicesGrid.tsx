@@ -6,7 +6,7 @@ interface HomeServiceCard {
   id: string;
   slug: string;
   name: string;
-  shortDesc?: string;
+  shortDesc: string;
   icon: React.ReactNode;
   iconBg: string;
 }
@@ -16,6 +16,7 @@ const homeServices: HomeServiceCard[] = [
     id: "individual-psychotherapy",
     slug: "individual-psychotherapy",
     name: "Individual Psychotherapy",
+    shortDesc: "Personalized, compassionate therapy to help navigate challenges, manage anxiety, and foster self-growth.",
     icon: <UserCheck className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
   },
@@ -23,6 +24,7 @@ const homeServices: HomeServiceCard[] = [
     id: "family-couple-therapy",
     slug: "family-couple-therapy",
     name: "Family & Couple Therapy",
+    shortDesc: "Collaborative guidance to strengthen relationships, resolve recurring conflict, and rebuild healthy communication.",
     icon: <Users className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
   },
@@ -30,6 +32,7 @@ const homeServices: HomeServiceCard[] = [
     id: "cognitive-behavioural-therapy",
     slug: "cognitive-behavioural-therapy",
     name: "Cognitive Behavioural Therapy (CBT)",
+    shortDesc: "Goal-oriented approach to identify and reshape unhelpful thinking patterns and behavioural habits.",
     icon: <BrainCircuit className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
@@ -37,6 +40,7 @@ const homeServices: HomeServiceCard[] = [
     id: "dialectical-behaviour-therapy",
     slug: "dialectical-behaviour-therapy",
     name: "Dialectical Behaviour Therapy (DBT)",
+    shortDesc: "Practical skills training for emotional regulation, distress tolerance, mindfulness, and relational balance.",
     icon: <Compass className="w-5 h-5 text-forest-800" />,
     iconBg: "bg-[#D4E8DC]",
   },
@@ -44,14 +48,15 @@ const homeServices: HomeServiceCard[] = [
     id: "acceptance-commitment-therapy",
     slug: "acceptance-commitment-therapy",
     name: "Acceptance and Commitment Therapy (ACT)",
+    shortDesc: "Values-based therapy fostering psychological flexibility and meaningful action amidst life's challenges.",
     icon: <Shield className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
-  
   {
     id: "emotional-regulation-resilience",
     slug: "emotional-regulation-resilience",
     name: "Emotional Regulation & Resilience Training",
+    shortDesc: "Actionable grounding techniques to expand emotional tolerance, reduce overwhelm, and build lasting resilience.",
     icon: <HeartPulse className="w-5 h-5 text-[#BD7854]" />,
     iconBg: "bg-[#F7E2D4]",
   },
@@ -94,17 +99,23 @@ export function ServicesGrid() {
               {/* Subtle top accent line on hover */}
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#BD7854] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              <div className="flex items-start gap-4">
-                <div
-                  className={`w-12 h-12 rounded-2xl ${service.iconBg} flex items-center justify-center border border-sand-200/80 shadow-soft-sm flex-shrink-0 transition-transform duration-300 group-hover:scale-105`}
-                >
-                  {service.icon}
+              <div>
+                <div className="flex items-start gap-4">
+                  <div
+                    className={`w-12 h-12 rounded-2xl ${service.iconBg} flex items-center justify-center border border-sand-200/80 shadow-soft-sm flex-shrink-0 transition-transform duration-300 group-hover:scale-105`}
+                  >
+                    {service.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg sm:text-xl font-serif text-forest-950 font-semibold leading-snug pt-0.5">
+                      {service.name}
+                    </h3>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl font-serif text-forest-950 font-semibold leading-snug pt-0.5">
-                    {service.name}
-                  </h3>
-                </div>
+
+                <p className="mt-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {service.shortDesc}
+                </p>
               </div>
 
               <div className="pt-4 mt-5 border-t border-[#E8EFEA] flex items-center justify-between">

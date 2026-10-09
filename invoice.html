@@ -1,0 +1,491 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Invoice - Mentisara Website Project</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #172B26;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 12px;
+    line-height: 1.45;
+    overflow: hidden;
+  }
+  .invoice-container {
+    width: 210mm;
+    height: 297mm;
+    padding: 13mm 18mm 10mm 18mm;
+    position: relative;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  /* Top Accent Bar */
+  .top-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #173C36 0%, #2A5A52 50%, #C47C56 100%);
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    border-bottom: 1.5px solid #E6E0D6;
+  }
+  .brand-col {
+    max-width: 340px;
+  }
+  .brand-logo {
+    width: 185px;
+    height: auto;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .brand-subtitle {
+    font-size: 10px;
+    color: #5C6E67;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .invoice-title-col {
+    text-align: right;
+  }
+  .invoice-title {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #173C36;
+    text-transform: uppercase;
+    font-family: Georgia, serif;
+    margin-bottom: 4px;
+  }
+  .badge-paid {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 16px;
+    background: #E8F2EC;
+    color: #1A5336;
+    border: 1px solid #C4DFC8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Meta Info Grid */
+  .meta-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    gap: 16px;
+  }
+  .meta-block {
+    flex: 1;
+  }
+  .meta-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7D8F87;
+    margin-bottom: 4px;
+  }
+  .meta-value-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #173C36;
+    margin-bottom: 2px;
+  }
+  .meta-value-text {
+    font-size: 11px;
+    color: #4A5853;
+    line-height: 1.4;
+  }
+  .invoice-details-card {
+    background: #F7F5F0;
+    border: 1px solid #E6E0D6;
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 210px;
+  }
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    padding: 2.5px 0;
+  }
+  .detail-row .dt-label {
+    color: #6C7D76;
+    font-weight: 500;
+  }
+  .detail-row .dt-val {
+    color: #173C36;
+    font-weight: 700;
+  }
+
+  /* Deliverables Badges */
+  .deliverables-box {
+    background: #FAF8F5;
+    border: 1px dashed #D9D2C5;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+  }
+  .deliv-title {
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #173C36;
+    margin-bottom: 4px;
+  }
+  .deliv-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .deliv-pill {
+    background: #EAE5DC;
+    color: #2F3E38;
+    padding: 2.5px 7px;
+    border-radius: 5px;
+    font-size: 9.5px;
+    font-weight: 600;
+  }
+
+  /* Line Items Table */
+  .table-container {
+    margin-bottom: 12px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead th {
+    background: #173C36;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  thead th:first-child {
+    border-radius: 6px 0 0 0;
+  }
+  thead th:last-child {
+    border-radius: 0 6px 0 0;
+    text-align: right;
+  }
+  thead th:nth-child(3) {
+    text-align: right;
+  }
+  tbody tr {
+    border-bottom: 1px solid #ECE7DE;
+  }
+  tbody tr:nth-child(even) {
+    background: #FAF8F5;
+  }
+  tbody td {
+    padding: 8px 12px;
+    font-size: 11.5px;
+    vertical-align: top;
+  }
+  tbody td.item-title {
+    font-weight: 700;
+    color: #173C36;
+    font-size: 11.5px;
+  }
+  tbody td.item-desc {
+    color: #556660;
+    font-size: 10.5px;
+    margin-top: 2px;
+    line-height: 1.35;
+  }
+  tbody td.num-col {
+    text-align: right;
+    font-weight: 600;
+    color: #2D3D37;
+    white-space: nowrap;
+  }
+  tbody td.amount-col {
+    text-align: right;
+    font-weight: 700;
+    color: #173C36;
+    white-space: nowrap;
+  }
+
+  /* Summary Section */
+  .summary-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 4px;
+    margin-bottom: 14px;
+    gap: 20px;
+  }
+  .payment-instructions {
+    flex: 1;
+    background: #F7F5F0;
+    border: 1px solid #E6E0D6;
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .instructions-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #173C36;
+    margin-bottom: 5px;
+  }
+  .instructions-list {
+    font-size: 10.5px;
+    color: #4C5D56;
+    line-height: 1.5;
+  }
+  .instructions-list strong {
+    color: #173C36;
+  }
+
+  .totals-box {
+    width: 230px;
+  }
+  .totals-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3.5px 0;
+    font-size: 11.5px;
+    color: #5A6D65;
+  }
+  .totals-row.grand-total {
+    border-top: 2px solid #173C36;
+    margin-top: 5px;
+    padding-top: 8px;
+    color: #173C36;
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .grand-total .amt {
+    color: #C47C56;
+    font-family: Georgia, serif;
+    font-size: 17px;
+  }
+
+  /* Footer */
+  .footer {
+    padding-top: 10px;
+    border-top: 1px solid #ECE7DE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: #7D8F87;
+  }
+  .footer-thankyou {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #173C36;
+  }
+</style>
+</head>
+<body>
+
+<div class="invoice-container">
+  <div class="top-accent"></div>
+
+  <div>
+    <!-- HEADER -->
+    <div class="header">
+      <div class="brand-col">
+        <img src="data:image/png;base64,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" alt="Mentisara Logo" class="brand-logo" />
+        <div class="brand-subtitle">Web Design &amp; Full-Stack Engineering</div>
+      </div>
+      <div class="invoice-title-col">
+        <div class="invoice-title">INVOICE</div>
+        <div class="badge-paid">Official Invoice</div>
+      </div>
+    </div>
+
+    <!-- META INFO -->
+    <div class="meta-grid">
+      <div class="meta-block">
+        <div class="meta-label">Billed To (Client):</div>
+        <div class="meta-value-title">Mentisara Practice</div>
+        <div class="meta-value-text">
+          Online Psychotherapy &amp; Counselling<br>
+          Kerala (Inside &amp; Outside)<br>
+          <strong>Domain:</strong> www.mentisara.in<br>
+          <strong>Email:</strong> mentisaramindtalks@gmail.com
+        </div>
+      </div>
+
+      <div class="meta-block">
+        <div class="meta-label">Service Provider:</div>
+        <div class="meta-value-title">Frontend &amp; Full-Stack Engineering</div>
+        <div class="meta-value-text">
+          Web Application Architecture &amp; UI/UX<br>
+          Next.js / Vercel Cloud Solutions<br>
+          Contract Engineering Services
+        </div>
+      </div>
+
+      <div class="invoice-details-card">
+        <div class="detail-row">
+          <span class="dt-label">Invoice No:</span>
+          <span class="dt-val">INV-2026-MTS01</span>
+        </div>
+        <div class="detail-row">
+          <span class="dt-label">Invoice Date:</span>
+          <span class="dt-val">08 Oct 2026</span>
+        </div>
+        <div class="detail-row">
+          <span class="dt-label">Due Date:</span>
+          <span class="dt-val">On Receipt</span>
+        </div>
+        <div class="detail-row">
+          <span class="dt-label">Currency:</span>
+          <span class="dt-val">INR (₹)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DELIVERABLES TAGS -->
+    <div class="deliverables-box">
+      <div class="deliv-title">Project Scope Completed &amp; Delivered:</div>
+      <div class="deliv-pills">
+        <span class="deliv-pill">✓ Mindora/Vellura UI/UX Redesign</span>
+        <span class="deliv-pill">✓ Next.js 14 Responsive App</span>
+        <span class="deliv-pill">✓ Appointment Intake System</span>
+        <span class="deliv-pill">✓ Age Limit (15–60) Control</span>
+        <span class="deliv-pill">✓ Automated Resend Confirmation Email</span>
+        <span class="deliv-pill">✓ mentisara.in DNS &amp; Vercel Live Deployment</span>
+      </div>
+    </div>
+
+    <!-- LINE ITEMS TABLE -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 5%;">#</th>
+            <th style="width: 61%;">Description of Deliverables</th>
+            <th style="width: 14%;">Qty</th>
+            <th style="width: 20%;">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num-col" style="text-align: left;">01</td>
+            <td>
+              <div class="item-title">UI/UX Redesign &amp; Premium Brand Aesthetics</div>
+              <div class="item-desc">
+                Complete visual redesign inspired by clean organic aesthetics (Mindora &amp; Vellura). Created customized high-contrast luminous white &amp; deep forest brand logo assets, bespoke typography hierarchy, botanical palettes, and responsive glassmorphic cards.
+              </div>
+            </td>
+            <td class="num-col">1 Unit</td>
+            <td class="amount-col">&#8377; 3,000.00</td>
+          </tr>
+          <tr>
+            <td class="num-col" style="text-align: left;">02</td>
+            <td>
+              <div class="item-title">Full-Stack Web Architecture &amp; Interactive Features</div>
+              <div class="item-desc">
+                Next.js 14 production implementation across all pages (Home, About, Clinical Services, Psychoeducation Resources, Terms &amp; Privacy, Contact). Built interactive self-assessment quiz, therapy approaches showcase, and mobile navigation drawer.
+              </div>
+            </td>
+            <td class="num-col">1 Unit</td>
+            <td class="amount-col">&#8377; 3,500.00</td>
+          </tr>
+          <tr>
+            <td class="num-col" style="text-align: left;">03</td>
+            <td>
+              <div class="item-title">Clinical Intake System &amp; Automated Email Notifications</div>
+              <div class="item-desc">
+                Custom appointment booking application with strict 15–60 age limitation, multi-lingual preferences, anti-spam honeypot, optional ID proof attachment, automated branded confirmation email dispatch to clients, and clinic team notification integration.
+              </div>
+            </td>
+            <td class="num-col">1 Unit</td>
+            <td class="amount-col">&#8377; 2,000.00</td>
+          </tr>
+          <tr>
+            <td class="num-col" style="text-align: left;">04</td>
+            <td>
+              <div class="item-title">Production Deployment, DNS Migration &amp; Domain Linking</div>
+              <div class="item-desc">
+                Vercel production edge deployment setup, linking existing custom domain (mentisara.in &amp; www.mentisara.in), DNS records reconfiguration (A records &amp; CNAME routing), automated SSL certificate provisioning, and cross-device testing.
+              </div>
+            </td>
+            <td class="num-col">1 Unit</td>
+            <td class="amount-col">&#8377; 1,500.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SUMMARY SECTION -->
+    <div class="summary-section">
+      <div class="payment-instructions">
+        <div class="instructions-title">Payment Information / Instructions</div>
+        <div class="instructions-list">
+          <div>• <strong>Payment Mode:</strong> UPI / Direct Bank Transfer</div>
+          <div>• <strong>Project Status:</strong> Completed &amp; Handed Over</div>
+          <div>• <strong>Note:</strong> All code deployed on Vercel and configured to production domain mentisara.in.</div>
+        </div>
+      </div>
+
+      <div class="totals-box">
+        <div class="totals-row">
+          <span>Subtotal:</span>
+          <span style="font-weight: 600;">&#8377; 10,000.00</span>
+        </div>
+        <div class="totals-row">
+          <span>Discount:</span>
+          <span>&#8377; 0.00</span>
+        </div>
+        <div class="totals-row">
+          <span>Taxes / Fees:</span>
+          <span>&#8377; 0.00</span>
+        </div>
+        <div class="totals-row grand-total">
+          <span>Total Payable:</span>
+          <span class="amt">&#8377; 10,000.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-thankyou">Thank you for the opportunity to build the new Mentisara website!</div>
+    <div>Page 1 of 1 &nbsp;|&nbsp; Mentisara Project Invoice</div>
+  </div>
+</div>
+
+</body>
+</html>
